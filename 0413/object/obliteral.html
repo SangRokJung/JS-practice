@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const a = 50
+
+        const ob = {
+            a,
+            getA(){
+                return this.a
+            },
+            [`${a} - 1 = `] : 49,
+        }
+
+        ob[`B의 대문자는?`] = 'B'
+
+        console.log(ob)
+
+        
+
+        //50
+    </script>
+</body>
+</html>

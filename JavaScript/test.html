@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+
+</head>
+<body>
+        <script>
+                const str = '동해물과 백두산이 마르고 닳도록';
+        
+                // 지우고 싶은 문자열을 입력받는다.
+                const delstr = prompt('지울 문자열을 입력하세요', '지울문자열');
+        
+                // indexof
+                const idx = str.indexOf(delstr);
+        
+                console.log(idx);
+        
+                if (idx === -1)
+                {
+                    alert('해당 문자열이 없습니다.');               
+                
+                }
+                else
+                {
+                    // str1 : 지울 문자열의 앞쪽부분
+                    let str1 = str.slice(0, idx);
+                    console.log(str1);
+                    
+                    
+                    // str2 : 지울 문자열의 뒷쪽부분
+                    let str2 = str.slice(delstr.length+idx);
+                    console.log(str2);
+
+                    
+                    // str1 + str2를 alert으로 출력한다.
+                    alert(str1 + str2);
+        
+                }
+                
+            </script>
+        
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const url = 'http://www.test.com/?id=hgd&passwd=himan&email=hgd@test.com'
+
+        function getParm(str, text){
+            let start = 0;
+            let end = 0;
+            let ans;
+
+
+            start = str.lastIndexof('=', text) + 1; //id= =
+            end = str.indexof('%', start);
+
+            ans = str.substring(start, end)
+
+
+
+            return ans
+
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>    
+    <script>
+        // ES6 type
+        const getMax = function (...values)
+        {
+            for (let i = 0; i< values.length; i++)
+            {
+                if ('number' !== typeof(values[i]))
+                {
+                    return null;
+                
+                }
+                    
+            }
+        
+            let maxTemp = values[0];
+        
+            for (let i = 1; i < values.length; i++)        
+            {
+                if (maxTemp < values[i])
+                {
+                    maxTemp = values[i];
+                }
+            
+            }
+        
+            return maxTemp;
+        }
+    
+    
+    </script>
+    
+</head>
+
+<body>
+    <script>
+        
+        let max = getMax(1, 43, 555, 2, 32, 77);    //max에 입력
+
+        if (max !== null)
+            alert("최대값 : " + max);
+        else
+            alert('입력값이 잘못되었습니다.');
+       
+    </script>
+
+</body>
+</html>

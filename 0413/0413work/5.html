@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //아래 문자열에서 id, passwd, email을 찾고 이를 Object litera로 만드시오.
+        const url = 'http://www.test.com/?id=hgd&passwd=himan&email=hgd@test.com'
+
+        
+
+        function getParm(str, text){
+            let start = 0;
+            let end = 0;
+            let ans;
+            
+
+            //시작점
+            start = str.indexOf('=', text) + 1;
+
+            console.log(start)
+
+            //끝점
+            if (typeof(str.indexOf('&', start)) === 'number')
+            {   
+                end = str.indexOf('&', start);
+            }
+            else
+            {
+                end = null;
+            }
+
+            //정보 출력
+            ans = str.substring(start, end)
+
+            return ans
+        }
+
+
+
+        const account = {}
+
+        account.id = getParm(url, 'id')
+        account.pass = getParm(url, 'passwd')
+        //account.email = email(url, 'email')
+
+        console.log(account.id)
+        //console.log(account.passwd)
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        const num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+        const ans = num.filter(function(value)
+        {
+            if ((value % 2) !== 0)
+                return true;
+            else
+                return false;
+        }
+        )
+
+        console.log(ans)
+    </script>
+</body>
+</html>

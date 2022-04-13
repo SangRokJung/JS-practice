@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       const product = {
+            name : 'Macbook pro',
+            type : 'notebook',
+            USB : '3',
+            currency : '$',
+            price : 1300,
+            getName : function(){
+                        return this.name
+            },
+            getPrice : function(n){
+                        if(n >= 10)
+                        {
+                            return this.currency + ((this.price * n) * 0.9)
+                        }
+                        else if (n < 10)
+                        {
+                            return this.currency + (this.price * n)
+                        }
+                        else{}
+                        return null;
+            }
+       }
+       console.log(product.getName())
+
+       console.log(product.getPrice(26))
+
+       product.lang = ['KOR', 'JPN', 'ENG'];
+
+       //Macbook pro
+       //$30420
+    </script>
+</body>
+</html>

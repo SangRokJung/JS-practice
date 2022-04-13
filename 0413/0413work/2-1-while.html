@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let source = 'ab ab aaaa bbbccc abc';        
+        const target = prompt('찾을 문자열', 'ab');
+
+        const findString = function(src, target, newstr)
+        {
+            let pos = 0;
+            const result=[];
+
+            const rresult ={};
+            let newstring =undefined;
+            while(1)
+            {
+                pos = src.indexOf(target, pos);
+
+                if (pos === -1) {
+                    break;
+                }
+                else {
+                    result.push(pos);
+                    pos = pos + target.length;
+                }
+            }
+
+            if (newstr !== undefined)
+            {                
+                newstring = src.replaceAll(target, newstr);
+           
+                
+
+            }
+
+            rresult.pos = result;
+            rresult.newString = newstring;
+
+
+            return rresult;
+           
+        }
+       
+        const result = findString(source, target, 'kk');
+
+        console.log(result); 
+        
+        
+        
+    </script>
+</body>
+</html>

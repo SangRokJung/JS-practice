@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>    
+
+</head>
+
+<body>
+    <script>
+
+        
+        const twoNum = prompt('두값을 입력하시오.', ', 으로 구분');
+        const addRange = twoNum.split(', ');
+                                    
+        function addRange(from, to)
+        {
+            let temp;
+            let total = 0; //총합
+
+            if ((typeof(from) !== 'number') || (typeof(to) !== 'number'))
+                return null;
+
+            // from 10, to 5, addrange(10, 5)
+            if (from > to)
+            {
+                temp = from;
+                from = to
+                to = temp;
+            
+            }
+
+            for (let i = from; i <= to ; i++)
+            {
+                total = total + i;
+
+            }
+
+            return total;
+        }
+
+        
+
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+</head>
+<body> 
+    <script>
+    
+        let ar = [1, 2, 3, 4, 5, 6, 7, 8, 9]  //object ar=참조값,reference address
+
+        const cb = function(value, index)
+        {
+            console.log(`2 X ${value} = ${2 * value}`)
+        }
+
+        ar.forEach(cb); //배열 요소의 갯수만큼 호출
+
+        console.log('--------------------------------')
+
+        //함수를 바로 호출
+        ar.forEach(function(value, index)
+            {
+                console.log(`4 X ${value} = ${4 * value}`)
+            });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function bubbleSort(first, ...values)
+        {
+            let source;
+            let index;
+            let temp;
+            let sourceAr = []
+
+            if ('number' === typeof(first))
+            {
+                source = values
+                source.unshift(first)
+            }
+            else if (Array.isArray(first) === true)
+            {
+                source = first;
+            }
+            
+            for(let i = 0; i < source.length - 1; i++)
+            {
+                for(let j = 0; j < source.length - 1 - i; j++)
+                {
+                    
+                }
+            }
+
+            return source;
+        }
+
+        
+        let result = bubbleSort(25, 1, 56, 2, 6)
+        console.log(result)
+
+        result = bubbleSort([43, 7, 1, 3], 3, 5, 1)
+        console.log(result)
+
+    </script>
+</body>
+</html>

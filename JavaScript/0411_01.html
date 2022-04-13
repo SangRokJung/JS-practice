@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        
+        let fac = function(num)         //n!구하는 함수
+        {
+            if(num === 1)
+            {
+                return num;
+            }
+            else
+            {
+                return(num) * fac(num-1);
+            }
+        }
+        
+        /*
+        let fac = function(num)
+        {
+            let total;
+
+            if(num === 1)
+            {
+                return null;
+            }
+            else
+            {
+                total = num * fac(num - 1);
+            }
+            
+            return total;
+        }
+        */
+
+        let result = fac(5)             //n!입력
+        alert(result)
+
+    </script>
+</body>
+</html>

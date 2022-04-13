@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+        console.log(num.filter((value) => {if ((value & 2) === 0) return true;})
+                        .map((value) => value * 2))
+
+    </script>
+</body>
+</html>
