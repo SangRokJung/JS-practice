@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const data = [
+            {id : 2, name : 'abc'},
+            {id : 10, name : 'def'},
+            {id : 24, name : 'ghi'},
+            {id : 6, name : 'jkl'},
+            {id : 3, name : 'fqc'},
+        ]
+
+
+        
+        let newData = []
+        
+        newData = data['id'].sort(function(a, b)
+        {
+            return a - b;
+        })
+        console.log(newData)
+        
+        
+        //console.log(data[0]['id'])
+        
+    </script>
+</body>
+</html>

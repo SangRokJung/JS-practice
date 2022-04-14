@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1~x 사이의 랜덤한 양수를 10개 가지고 있는 배열을 만드시오.
+        function asOrder(num)
+        {
+                let ranNum = []
+                let stamp;
+
+                //랜덤수 생성
+                for (let i = 0; i < 10; i++)
+                {
+                    ranNum[i] = Math.floor(Math.random()*(num+1)); 
+                }
+
+                //오름차순
+                for (let i = 0; i < ranNum.length; i++)
+                {
+                    for (let j = 0; j < ranNum.length - 1; j++)
+                    {
+                        if (ranNum[j] > ranNum[j+1] )
+                        {   
+                            stamp = ranNum[j];
+                            ranNum[j] = ranNum[j+1];
+                            ranNum[j+1] = stamp;
+                        }
+                        else
+                        {
+                            ranNum[j] = ranNum[j]
+                        }
+                    }
+                }
+                return ranNum;
+                
+        }
+
+        function dsOrder(num)
+        {
+            let ranNum = []
+                let stamp;
+
+                //랜덤수 생성
+                for (let i = 0; i < 10; i++)
+                {
+                    ranNum[i] = Math.floor(Math.random()*(num+1)); 
+                }
+
+                //내림차순
+                for (let i = 0; i < ranNum.length; i++)
+                {
+                    for (let j = 0; j < ranNum.length - 1; j++)
+                    {
+                        if (ranNum[j] < ranNum[j+1] )
+                        {   
+                            stamp = ranNum[j+1];
+                            ranNum[j+1] = ranNum[j];
+                            ranNum[j] = stamp;
+                        }
+                        else
+                        {
+                            ranNum[j] = ranNum[j]
+                        }
+                    }
+                }
+                return ranNum;
+                
+        }
+
+        const orderOb = {}
+
+        orderOb.asOrder = (asOrder(30))
+        orderOb.dsOrder = (dsOrder(30))
+
+        console.log(orderOb)
+
+    </script>
+</body>
+</html>
