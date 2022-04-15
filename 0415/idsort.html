@@ -6,7 +6,7 @@
 </head>
 <body>
     <script>
-        const data =[
+        const da = [
             {id:3, name: 'sdf'},
             {id:13, name: 'dfg'},
             {id:25, name: 'hsd'},
@@ -16,8 +16,71 @@
             {id:17, name: 'hgf'}
         ]
 
-        console.log(data.sort((a, b) => a.id - b.id))
-       
+        console.log(da)
+
+        /*
+        let newData = (data.sort((a, b) => a.id - b.id))
+
+        console.log(Data)
+        */
+
+        function compare(cmd, data)
+        {
+            console.log(data)
+            let stamp = 0;
+
+            if (cmd === 'as')
+            {
+                for (let i = 0; i < data.length - 1; i++)
+                {
+                    for(let j = 0; j < data.length - i; j++)
+                    {
+                        if (data[j].id > data[j+1].id)
+                        {
+                            stamp = data[j];
+                            data[j] = data[j+1];
+                            data[j+1] = stamp;
+                        }
+                        else
+                        {
+                            data[j] = data[j]
+                        }    
+                    }
+                }
+                return data;
+            }
+            else (cmd === 'ds')
+            {
+                for (let i = 0; i < data.length - 1; i++)
+                {
+                    for(let j = 0; j < data.length - i; j++)
+                    {
+                        if (data[j].id < data[j+1].id)
+                        {
+                            stamp = data[j+1];
+                            data[j+1] = data[j];
+                            data[j] = stamp;
+                        }
+                        else
+                        {
+                            data[j] = data[j]
+                        }        
+                    }
+                }
+                return data;
+            }
+            
+        }
+
+        
+        const sort = {}
+
+        sort.asO = compare('as', da);
+        //sort.dsO = compare('ds', da);
+
+        console.log(sort.asO)
+        console.log(sort.dsO)
+        
     </script>
 </body>
 </html>
