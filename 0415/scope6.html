@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const outfunc = function()          //외부함수
+        {
+            const value = 10;
+            const infunc = function()       //내부함수
+            {
+                console.log(value);
+            }
+            infunc();
+        }
+        outfunc();
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function func()
+        {
+            for (var i = 0; i < 5; i++)
+            {
+                i;
+            }
+            console.log(i);
+        }
+        func()
+        //5
+
+        function func2()
+        {
+            for (let i = 0; i < 5; i++)
+            {
+                i;
+            }
+            console.log(i);
+        }
+        func2()
+        //Uncaught ReferenceError: i is not defined
+
+    </script>
+</body>
+</html>

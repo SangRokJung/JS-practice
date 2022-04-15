@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = 30;
+
+        const f1 = function()
+        {
+            let a = 10;
+            const f2 = function()
+            {
+                console.log(a);
+            }
+            f2()
+        }
+        f1()
+
+        //10
+    </script>
+</body>
+</html>

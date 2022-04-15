@@ -16,7 +16,6 @@
             {id:17, name: 'hgf'}
         ]
 
-        console.log(da)
 
         /*
         let newData = (data.sort((a, b) => a.id - b.id))
@@ -24,16 +23,18 @@
         console.log(Data)
         */
 
-        function compare(cmd, data)
+        function compare(cmd, inData)
         {
-            console.log(data)
             let stamp = 0;
+
+            let data = []
+            data = inData;
 
             if (cmd === 'as')
             {
-                for (let i = 0; i < data.length - 1; i++)
+                for (let i = 0; i < data.length; i++)
                 {
-                    for(let j = 0; j < data.length - i; j++)
+                    for(let j = 0; j < data.length - 1; j++)
                     {
                         if (data[j].id > data[j+1].id)
                         {
@@ -76,10 +77,12 @@
         const sort = {}
 
         sort.asO = compare('as', da);
-        //sort.dsO = compare('ds', da);
-
         console.log(sort.asO)
+
+        sort.dsO = compare('ds', da);
         console.log(sort.dsO)
+
+        console.log(sort)
         
     </script>
 </body>
