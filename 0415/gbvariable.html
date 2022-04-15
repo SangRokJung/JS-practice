@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        (function()
+        {
+            const myGolbal = {
+
+                value1 : 1,
+                array1 : [11, 22, 33, 44, 55]
+            };
+
+            const func = function()
+            {
+                return myGolbal.array1[0] + myGolbal.value1;
+            }
+
+            console.log(func());
+        })()
+        
+        //12
+    </script>
+</body>
+</html>

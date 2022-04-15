@@ -20,8 +20,9 @@
         /*
         let newData = (data.sort((a, b) => a.id - b.id))
 
-        console.log(Data)
+        cconsole.log(Data)
         */
+
 
         function compare(cmd, inData)
         {
@@ -50,11 +51,11 @@
                 }
                 return data;
             }
-            else (cmd === 'ds')
+            else if (cmd === 'ds')
             {
-                for (let i = 0; i < data.length - 1; i++)
+                for (let i = 0; i < data.length; i++)
                 {
-                    for(let j = 0; j < data.length - i; j++)
+                    for(let j = 0; j < data.length - 1; j++)
                     {
                         if (data[j].id < data[j+1].id)
                         {
@@ -70,17 +71,23 @@
                 }
                 return data;
             }
+            else
+            {
+                return null
+            }
             
         }
 
         
-        const sort = {}
-
-        sort.asO = compare('as', da);
-        console.log(sort.asO)
+        let sort = {}
 
         sort.dsO = compare('ds', da);
-        console.log(sort.dsO)
+        //console.log(sort.dsO)
+
+        sort.asO = compare('as', da);
+        //console.log(sort.asO)
+
+        
 
         console.log(sort)
         
