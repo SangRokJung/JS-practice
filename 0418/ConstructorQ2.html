@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       let cat;
+
+       function Animal (_name)
+       {
+           if (this === cat) {
+               console.log('this is a cat');
+           }
+           else {
+               console.log('this is not a cat');
+           }
+
+           this.CheckThis = function()
+           {
+               if (this === cat)
+               {
+                   console.log('this is a cat');
+               }
+           }
+       }
+
+       cat = new Animal('Navi');
+
+       cat.CheckThis();
+
+    //this is not a cat
+    //this is a cat
+    </script>
+</body>
+</html>

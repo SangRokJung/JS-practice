@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const o = {}
+        const p = {}
+
+        function func()
+        {
+            switch(this)
+            {
+                case o : 
+                    console.log('o ojb');
+                    break;
+                case p :
+                    console.log('p ojb');
+                    break;
+                case window : 
+                    console.log('window');
+                    break;
+            }    
+        }
+
+        func();
+        func.apply(o);
+        func.apply(p);
+
+        //windwo
+        //o ojb
+        //p ojb
+
+        //Function은 this를 변경할 수 있다.
+    </script>
+</body>
+</html>

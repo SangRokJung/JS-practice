@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       //student 생성자를 만드시오
+
+        function makeStudent(aId, aName)
+        {
+            this.id = aId;
+            this.name = aName;
+
+            this.getName = function ()
+            {
+                return this.name;
+            }
+            this.getId = function ()
+            {
+                return this.id;
+            }
+            this.setName = function (_name)
+            {
+                this.name = _name;
+            }
+            this.setId = function(_id)
+            {
+                this.id = _id;
+            }
+        }
+
+        const stu1 = new makeStudent('JSR', '정상록');
+
+        console.log(stu1.getName())
+        console.log(stu1.getId())
+        //정상록
+        //JSR
+        
+        stu1.setId("JJJ")
+        console.log(stu1.getId())
+        //JJJ
+        
+    </script>
+</body>
+</html>

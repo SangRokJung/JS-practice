@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const makeStudent = function(id, name)
+        {
+            return {
+                getId(){
+                    return id;
+                },
+                getName(){
+                    return name;
+                }
+            }
+        }
+
+        const cst1 = makeStudent('JSR', '정상록')
+        console.log(cst1.getName())
+        //정상록
+
+        const cst2 = makeStudent('JCS', '정찬성')
+        console.log(cst2.getName())
+        //정찬성
+
+
+    </script>
+</body>
+</html>
