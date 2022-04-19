@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const makeInstance = function(title)
+        {
+            return {
+
+                getTitle() //function 축약됨
+                {
+                    return title;
+                },
+                setTitle : function(_title)
+                {
+                    title = _title;
+                }
+
+            }
+        }
+
+
+        const book1 = makeInstance('title1');
+
+        console.log(book1.getTitle());
+        book1.setTitle('titl2')
+        console.log(book1.getTitle());
+
+        //title1
+        //titl2
+    </script>
+</body>
+</html>

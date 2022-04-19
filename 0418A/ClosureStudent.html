@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function makeStudent(id, name, score)
+        {
+            return {
+            
+                getId()
+                {
+                    return id;
+                },
+                setId(_id)
+                {
+                    id = _id;
+                },
+                getName()
+                {
+                    return name;
+                },
+                setName(_name)
+                {
+                    name = _name;
+                },
+                getScore()
+                {
+                    return score;
+                },
+                setScore(_score)
+                {
+                    score = _score;
+                },
+                getAverage() 
+                { 
+                    let newScore = 0;
+
+                    for (let i = 0; i < score.length; i++)
+                    {
+                        newScore = newScore + score[i];
+                    }
+                    return (newScore/score.length).toFixed(2);
+
+                }
+            }
+        }
+        const stu1 = makeStudent('hgd', '홍길동', [67, 87, 94]);
+        const avg = stu1.getAverage();
+
+        console.log(avg)
+
+        stu1.setName('정상록')
+
+        console.log(stu1.getName())
+
+
+    </script>
+</body>
+</html>
