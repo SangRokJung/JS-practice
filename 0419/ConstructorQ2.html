@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const circle = function(_radius = 1, cmd)
+        {       //!new.target
+            if (new.target) {
+                this.radius = _radius
+                this.PI = 3.14;
+                
+                this.getRadius = function() {
+                    return this.getRadius;
+                }
+
+                this.setRadius = function(_radius) {
+                    if ((typeof(_radius) === 'number') && (_radius > 0)){
+                        this.radius = _radius;
+                    }
+                    else {
+                        return false;
+                    }
+                }
+
+                this.getArea = function() {
+                    // 원의 넓이 = 원주율 * 반지름 * 반지름 
+                    return (this.radius * this.radius * this.PI)
+                }
+                this.getCircum = function() {
+                    // 원의 둘레 = (반지름 * 2) * 원주율
+                    return  (this.PI * (this.radius * 2)).toFixed(3);
+
+                }
+            }
+            else {
+                switch(cmd) {
+                    case 'area' : 
+                        return _radius * _radius * 3.14;
+                        break;
+
+                    case 'circum' : 
+                        return (3.14 * (_radius * 2)).toFixed(2);
+                        break;
+
+                }
+            }
+        }
+
+        const circle1 = new circle(10);
+        const circle2 = circle(1345, 'area');
+
+        console.log('원1의 넓이 = ' + circle1.getArea());
+        console.log('원1의 둘레 = ' + circle1.getCircum());
+        console.log('원2의 넓이 = ' + circle2)
+
+        circle1.setRadius(104) //반지름 수정
+
+        console.log('원1의 넓이 = ' + circle1.getArea());
+
+        console.log('원2의 둘레 = ' + circle(1535, 'circum'));
+        
+        //원1의 넓이 = 314
+        //원1의 둘레 = 62.800
+        //원2의 넓이 = 5680338.5
+        //원1의 넓이 = 33962.24
+        //원2의 둘레 = 9639.80
+    </script>
+</body>
+</html>

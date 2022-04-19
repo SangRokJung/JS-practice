@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        Array.prototype.getRandomElement = function()
+        {
+            return this [Math.floor(Math.random() * this.length)];
+        }
+
+        const menu = new Array('마라탕', '국밥', '분식', '백반', '중식', '샐러드')
+
+        const brand = ['benz', 'hyundai', 'honda', 'kia', 'ford'];
+
+        console.log(menu.getRandomElement())
+        console.log(brand.getRandomElement())
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const parent = function() {
+
+        }
+        parent.prototype.value = 10;
+
+        const child = function() {
+
+        }
+
+        child.prototype = new parent();
+        //parent 자체가 들어간다.
+        //parent의 prototype도 들어간다. value
+        //둘다 같은 prototype이기 때문에 가능하다.
+        
+        const myson = new child();
+        console.log(myson.value);
+        //10
+
+    </script>
+</body>
+</html>

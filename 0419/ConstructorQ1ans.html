@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const circle = function(_radius = 1)
+        {
+            this.radius = _radius
+            this.PI = 3.14;
+            
+            this.getRadius = function() {
+                return this.getRadius;
+            }
+
+            this.setRadius = function(_radius) {
+                if ((typeof(_radius) === 'number') && (_radius > 0)){
+                    this.radius = _radius;
+                }
+                else {
+                    return false;
+                }
+            }
+
+            this.getArea = function() {
+                // 원의 넓이 = 원주율 * 반지름 * 반지름 
+                return this.radius * this.radius * this.PI;
+            }
+            this.getCircum = function() {
+                // 원의 둘레 = (반지름 * 2) * 원주율
+                return  (this.PI * (this.radius * 2)).toFixed(2);
+
+            }
+        }
+
+        const circle1 = new circle(10);
+    
+
+        console.log(circle1.getArea());
+        console.log(circle1.getCircum())
+
+        console.log(circle1.setRadius('234'))
+        
+        //314
+        //62.80
+        //false
+
+    </script>
+</body>
+</html>

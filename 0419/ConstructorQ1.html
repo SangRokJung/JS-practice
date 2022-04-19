@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const area = {}
+        const circum = {}
+
+        function circle(radius)
+        {
+            switch(this)
+            {
+                case area :
+
+                    return radius * radius * 3.14;
+
+                    break;
+
+                case circum : 
+                    let cir1 = 0 ;
+                    cir1 = 3.14 * (radius * 2);
+                    return cir1;
+                    break;
+            }
+                 
+
+        }
+        
+        circle.apply(area, [10])
+        //circle.apply(circum)
+
+    </script>
+</body>
+</html>

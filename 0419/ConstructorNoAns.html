@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const add = function(_a, _b, cmd)
+        {   
+            if (new.target){
+                this.a = _a
+                this.b = _b
+
+                this.getAdd = function(){
+                    return this.a + this.b
+                }
+            }
+            else {
+                return _a + _b;
+            }
+
+        }
+
+        const obj = new add(10, 20)
+        const obj2 = add(1, 2)
+
+        console.log(obj.getAdd());
+        console.log(obj2)
+
+        //30
+        //3
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        Array.prototype.aaa = 9090;
+
+        Array.prototype.dummy = function()
+        {
+            console.log('HI')
+        };
+
+        Array.prototype.getFirstElement = function()
+        {   
+            console.log(this.aaa)
+            return this[0];
+        }
+
+        const ar1 = [1, 2, 3, 4]
+        const ar2 = new Array(0, 1, 2, 3)
+
+        console.log(dummy())
+        console.log(dummy())
+
+
+
+        console.log(ar1.getFirstElement())
+        console.log(ar2.getFirstElement())
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const getRandomElement = function(menu)
+        {   
+            return menu[Math.floor(Math.random() * menu.length)]
+        }
+
+        const menu = new Array('마라탕', '국밥', '분식', '백반', '중식', '샐러드')
+
+        console.log(getRandomElement(menu))
+        
+    </script>
+</body>
+</html>

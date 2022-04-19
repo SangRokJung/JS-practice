@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const grandParent = function() 
+        {
+            this.stock = 'MS 100주'
+            
+        }
+        grandParent.prototype.money = '100억';
+        grandParent.prototype.realEstate = '여의도 자이 아파트';
+
+        const parent = function() 
+        {
+            this.stock = 'TESLA 500주'
+            this.apple = 'I MAC'
+        }
+        parent.prototype = new grandParent();
+
+        
+
+        const myson = function() 
+        {
+
+        }
+        myson.prototype = new parent();
+
+        const my = new myson();
+
+        console.log(my.money)
+        console.log(my.stock)
+        console.log(my.realEstate)
+        console.log(my.apple)
+
+        //100억
+        //TESLA 500주
+        //여의도 자이 아파트
+        //I MAC
+
+    </script>
+</body>
+</html>
