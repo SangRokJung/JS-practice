@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class cs {
+            #a;
+            #b;
+
+            constructor(_a, _b) {
+                this.#a = _a;
+                this.#b = _b;
+            }
+
+            getA(){
+                return this.#a
+            }
+            getB(){
+                return this.#b
+            }
+
+            getAdd(){
+                return this.#a + this.#b
+            }
+
+
+        }
+
+        const result = new cs(10, 9)
+
+        console.log(result.getA())
+        console.log(result.getB())
+        console.log(result.getAdd())
+
+        //10
+        //9
+        //19
+    </script>
+</body>
+</html>

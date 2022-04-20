@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const student = function(_id, _name, _score)
+        {
+            this.id = _id;
+            this.name = _name;
+            this.score = [..._score] //spread
+            
+            this.getTotal = function()
+            {
+                let total = 0;
+                for (let val of this.score)
+                {
+                    total = total + val;
+                }
+                return total;
+            }
+        }
+
+        //prototype 확장
+        student.prototype.getAverage = function()
+        {   
+            let total = 0;
+            for (let val of this.score)
+            {
+                total = total + val;
+            }
+            return (total/this.score.length);
+        }
+
+        
+        const score = [100, 87, 54]
+
+        const s1 = new student('JSR', '정상록', score)
+        const s2 = new student('JJ', '조조', [90, 70, 88])
+
+    
+        //출력
+        console.log(s1.score)
+        console.log(s1.name)
+        console.log(s1.id)
+        console.log(s1.getAverage().toFixed(2))
+
+        //(3) [100, 87, 54]
+        //정상록
+        //JSR
+        //80.33
+    </script>
+</body>
+</html>

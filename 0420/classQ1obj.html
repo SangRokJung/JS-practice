@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //object를 이용하여 만들기
+
+        const student1 = {
+            getAv : function() {
+                let av = 0;
+                for (let val of this.score)
+                {
+                    av = av + val;
+                }
+                return (av/this.score.length).toFixed(2); 
+            }
+        };
+
+        const student2 = {
+            id : 'JO',
+            name : '조온',
+            score : [80, 70, 98],
+            getAv : function() {
+                let av = 0;
+                for (let val of this.score)
+                {
+                    av = av + val;
+                }
+                return (av/this.score.length); 
+            }
+        };
+
+        const score = [100, 90, 80]
+        student1.id = 'JSR'
+        student1.name = '정상록'
+        student1.score = score
+        
+        //출력
+        console.log(student1.id)
+        console.log(student1.name)
+        console.log(student1.score)
+        console.log(student1.getAv().toFixed(2))
+
+        //JSR
+        //정상록
+        //(3) [100, 90, 80]
+        //90.00
+    </script>
+</body>
+</html>

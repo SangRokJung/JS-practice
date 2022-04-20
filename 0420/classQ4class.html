@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //class를 이용하여 만들기
+        class student 
+        {
+            //private 선언.
+            #id;
+            #name;
+
+            constructor(_id = 0, _name = 0, _score = 0)
+            {
+                this.#id = _id;
+                this.#name = _name;
+                this.score = [..._score];
+            }
+
+            //id
+            getId() {
+                return this.#id;
+            }
+            setId(_id) {
+                this.#id = _id;
+            }
+
+            //name
+            getName() {
+                return this.#name;
+            }
+            setName(_name) {
+                this.#name = _name;
+            }
+
+            //score
+            getScore() {
+                return this.score;
+            }
+            setScore(score ,idx) {
+                this.score[idx] = score
+            }
+
+            //평균
+            getAverage() {
+                let total = 0;
+                for (let val of this.score)
+                {
+                    total = total + val;
+                }
+                return total/this.score.length;
+            }
+            
+        };
+        const score = [100, 87, 54]
+
+        const st1 = new student('JSR', '정상록', score)
+
+        console.log(st1.getId())
+
+
+        //출력
+        st1.setId('SSS');
+        st1.setScore(0, 1);
+            
+        console.log(st1.getId())
+        console.log(st1.getName())
+        console.log(st1.getScore())
+        console.log(st1.getAverage().toFixed(1))
+        //SSS
+        //정상록
+        //(3) [100, 0, 54]
+        //51.3
+    </script>
+</body>
+</html>
