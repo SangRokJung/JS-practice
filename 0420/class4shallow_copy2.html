@@ -8,18 +8,26 @@
 <body>
     <script>
         class student 
-        {
+        {   
+            #id
+            #name
+            #score
             constructor(_id = 0, _name = 0, _score = 0)
             {
-                this.id = _id;
-                this.name = _name;
-                this.score = _score;
+                this.#id = _id;
+                this.#name = _name;
+                this.#score = [..._score];
+                
+            }
+            getScore(){
+                return this.#score
             }
         };
 
-        const s1 = new student('JSR', '정상록', [100, 35, 88, 85]);
+        const score = [100, 35, 88, 85]
+        const s1 = new student('JSR', '정상록',score);
 
-        console.log(s1.score);
+        console.log(s1.getScore());
 
         //(4) [100, 35, 88, 85]
     </script>
