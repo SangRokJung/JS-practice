@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class student 
+        {
+            constructor(_id = 0, _name = 0, _score = 0)
+            {
+                this.id = _id;
+                this.name = _name;
+                this.score = _score;
+
+            }
+
+
+            
+        };
+
+        student.prototype.getId = function()
+        {
+            return this.id
+        }
+
+        const s1 = new student('220000', 'JSR', '정상록')
+
+        s1.func = function()
+        {
+            console.log("Instance로 추가.")
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class rectangle
+        {    
+            #width
+            #height
+
+            static #rectNum = 0;
+
+            static getRectNum(){
+                return this.#rectNum;
+            }
+
+            static setRectNum(_rectNum){
+                this.#rectNum = _rectNum
+            }
+
+            constructor(_width, _height)
+            {   
+                if (_width < 0 || _height < 0 || typeof(_width) !== 'number' || typeof(_height) !== 'number') {
+                    throw 'parameter is not a number'
+                }
+                else {
+                    this.#width = _width;
+                    this.#height = _height;
+
+                    let rectNum = rectangle.getRectNum();
+                    rectangle.setRectNum(++rectNum)
+
+                }
+            }
+        }
+
+        class square extends rectangle
+        {
+            constructor(_length)
+            {
+                if (typeof(_length) === 'number' && _length > 0)
+                {
+                    super(_length, _length)
+                }
+                else
+                {
+                    throw 'parameter is not a number'
+                }
+            }
+
+            getLength(){
+                return this.width
+            }
+        }   
+
+        const s1 = new square(5);
+        const r1 = new rectangle(10 ,7)
+        const r2 = new rectangle(6, 2)
+        const r3 = new rectangle(10, 3)
+
+        console.log(rectangle.getRectNum())
+
+        //4
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class rectangle
+        {   
+            constructor(_width, _height)
+            {   
+                if (_width < 0 || _height < 0 || typeof(_width) !== 'number' || typeof(_height) !== 'number') {
+                    throw 'parameter is not a number'
+                }
+                else {
+                    this.width = _width
+                    this.height = _height
+                }
+
+
+            }
+
+            getPerimeter(){
+                return 2 * (this.width + this.height);
+            }
+
+            getArea(){
+                return this.width * this.height;
+            }
+
+            
+
+        }
+
+        class square extends rectangle
+        {
+            constructor(_length)
+            {
+                if (typeof(_length) === 'number' && _length > 0)
+                {
+                    super(_length, _length)
+                }
+                else
+                {
+                    throw 'parameter is not a number'
+                }
+
+            }
+        }   
+
+        const s1 = new square(5);
+        //const s2 = new square(-1)
+        //const s3 = new square('grsdf')
+
+        console.log(s1.getArea())
+        //console.log(s2.getArea())
+        //console.log(s3.getArea())
+
+        //25
+    </script>
+</body>
+</html>

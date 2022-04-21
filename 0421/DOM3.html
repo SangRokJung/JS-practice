@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <script>
+        const OnContentLoaded = function(event) {
+
+            const headtag = document.querySelectorAll('h1')
+            
+            headtag.forEach(function(item){
+                item.textContent = "AAA";
+                
+            })
+        }
+
+        addEventListener('DOMContentLoaded', OnContentLoaded);
+
+    </script>
+ 
+</head>
+<body>
+
+    <h1></h1>
+    <h1></h1>
+    <h1></h1>
+    <h1></h1>
+
+</body>
+</html>

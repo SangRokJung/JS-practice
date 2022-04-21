@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <script>
+        const OnContentLoaded = function(event) {
+            const divs = document.querySelectorAll('div')
+            
+            const h1tag = ['<h1>Hello</h1>', '<h1>World</h1>']
+
+            divs.forEach((value, index) => {
+                value.innerHTML = h1tag[index]
+
+            })
+
+        }
+
+        addEventListener('DOMContentLoaded', OnContentLoaded);
+
+    </script>
+ 
+</head>
+<body>
+
+    <div></div>
+    <div></div>
+
+</body>
+</html>

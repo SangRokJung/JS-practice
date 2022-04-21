@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class cs {
+            #a;
+            #b;
+
+            constructor(_a, _b) {
+
+                if (_a < 0 || _b < 0){
+                    throw '0보다 작습니다.'
+                } 
+                else {
+                    this.#a = _a;
+                    this.#b = _b;
+                }
+
+            }
+
+            get Add(){
+                return this.#a + this.#b
+            }
+
+            get A (){
+                return this.#a
+            }
+
+            set setA(_a) {
+                this.#a = _a;
+            }
+        }
+        const result = new cs(-1, -6)
+
+        //throw.html:17 Uncaught 0보다 작습니다.
+    </script>
+</body>
+</html>

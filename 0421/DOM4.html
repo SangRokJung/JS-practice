@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <script>
+        const OnContentLoaded = function(event) {
+            //객체를 가지고 온다.
+            const head = document.querySelector('h1');
+            let attr = head.getAttribute('style');
+
+            console.log(attr);
+        }
+
+        addEventListener('DOMContentLoaded', OnContentLoaded);
+
+    </script>
+ 
+</head>
+<body>
+
+    <h1 style="color:red">Hello World</h1>
+    <h1></h1>
+    <h1></h1>
+    <h1></h1>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class cs {
+            #a;
+            #b;
+
+            static #stC = 999;
+
+            static minus (a, b)
+            {   
+                return this.#stC 
+                //여기서 this는 객체가 아니라 해당 클래스의 정보를 의미한다.
+            }
+
+            constructor(_a, _b) {
+
+                if (_a < 0 || _b < 0){
+                    throw '0보다 작습니다.'
+                } 
+                else {
+                    this.#a = _a;
+                    this.#b = _b;
+                }
+            }
+
+            getAdd(){
+                return this.#a + this.#b
+            }
+
+            get A (){
+                return this.#a
+            }
+
+            set a (_a){
+                this.#a = _a;
+            }
+        }
+        const result = new cs(43, 5)
+
+        console.log(cs.minus())
+        
+        //999
+    </script>
+</body>
+</html>
