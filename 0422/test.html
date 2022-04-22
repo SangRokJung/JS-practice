@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const OnContentLoaded = function(){
+            
+            const div1 = document.querySelector('#d1');
+            const div2 = document.querySelector('#d2');
+
+            div1.innerHTML = <h1>hello</h1>;
+            div2.textContent = <h1>Hello</h1>;
+
+        }
+        window.addEventListener('DOMContentLoaded', OnContentLoaded)
+    </script>
+    
+
+
+</head>
+<body>
+    <div id="d1"></div>
+    <div id="d2"></div>
+
+</body>
+</html>

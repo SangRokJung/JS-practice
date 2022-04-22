@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+
+    <script>
+        const OnContentLoaded = function(event)
+        {
+            const imgs = document.querySelectorAll('.cls_imgcat');
+
+            const imgSrc = "http://www.placekitten.com/200/200"
+            
+
+            imgs.forEach((element, index)=>{
+                element.setAttribute('src', imgSrc);
+                
+            });
+    
+        }
+
+        addEventListener('DOMContentLoaded', OnContentLoaded);        
+    
+    </script>    
+
+</head>
+<body>
+    <img class="cls_imgcat">
+    <img class="cls_imgcat">
+    <img class="cls_imgcat">
+    <img>
+    <img>
+    
+</body>
+</html>
