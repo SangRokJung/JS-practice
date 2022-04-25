@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   
+    <title>Document</title>
+</head>
+<body>
+    <label>No Select <input type="radio" name="brand" value="nobrand"> </label>
+    <label>Apple<input type="radio" name="brand" value="Apple"> </label>
+    <label>Samsung<input type="radio" name="brand" value="Samsung"> </label>
+    <p></p>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const radios = document.querySelectorAll('input[name=brand]');
+            const p1 = document.querySelector('p');
+
+            radios.forEach((radio) => {
+                radio.addEventListener('change', (event) => {
+                    if (event.currentTarget.checked){
+                        p1.textContent = `${event.currentTarget.value}`;
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

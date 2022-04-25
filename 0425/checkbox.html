@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   
+    <title>Document</title>
+</head>
+<body>
+    <label>Checkbox<input type="checkbox"></label>
+    <p>Uncheked</p>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkbox = document.querySelector('input');
+            const p1 = document.querySelector('p');
+            let msg = '';
+
+            checkbox.addEventListener('change', (event) => {
+                if (event.currentTarget.checked)
+                    msg = 'Checked';
+                else
+                    msg = 'Unchecked';
+
+                p1.textContent = msg;
+            })
+        })
+    </script>
+</body>
+</html>

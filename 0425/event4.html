@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>  
+</head>
+<body>
+
+    <h1></h1>
+
+    <script>
+
+
+        const h1 = document.querySelector('h1');
+        const printkey = function(event){
+            let output = '';
+            output += `code = ${event.code} <br>`;
+            output += `keycode = ${event.keyCode} <br>`;
+            output += `Alt = ${event.altkey} <br>`;
+            output += `Ctrl = ${event.ctrllKey} <br>`;
+            output += `Shift = ${event.shiftKey} <br>`;
+
+            h1.innerHTML = output;
+        }
+ 
+
+        document.addEventListener('keydown', printkey);
+        document.addEventListener('keyup', printkey);
+
+    </script>
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>  
+</head>
+<body>
+    <h1>&starf;</h1>
+
+    <script>
+        const [left, up, right, down, q] = [37, 38, 39, 40, 81]
+        const star = document.querySelector('h1');
+        star.style.position = 'absolute'
+        
+        let x = 0;
+        let y = 0;
+        let = offset = 20;
+        const print = function(_x, _y){
+            star.style.left = `${_x * offset}px`;
+            star.style.top  = `${_y * offset}px`;
+        }
+        print(x, y)
+
+    
+        const moveStar = function(event){
+            switch (event.keyCode){
+                case left : x -= 1; break;
+                case up : y -= 1; break;
+                case right : x += 1; break;
+                case down : y += 1; break;
+                case q : y = 0, x = 0; break;
+                default : return; break; 
+            }
+            print (x, y)
+        }      
+    document.addEventListener('keydown', moveStar)
+
+    </script>
+</body>
+</html>

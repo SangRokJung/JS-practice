@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+
+       
+</head>
+<body>
+    <h1>click count 0</h1>
+
+    <script>
+        let count = 0;
+        const h1tag = document.querySelector('h1');
+
+        h1tag.addEventListener('click', (event) => {
+            count ++;
+            h1tag.textContent = 'click count' + count;
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', ()=>{
+
+            //1. 배열을 선언한다.
+            const userAccount = [
+                {id : 'hgd',    addr : '서울'},
+                {id : 'jsh',    addr : '경기'},
+                {id : 'lss',    addr : '부산'},
+                {id : 'admin3', addr : '대구'},
+                {id : 'ajk',    addr : '인천'},
+                {id : 'dks',    addr : '전남'},
+                {id : 'admin2', addr : '전북'},
+                {id : 'kmm',    addr : '김제'},
+                {id : 'uiz',    addr : '대전'},
+                {id : 'admin1', addr : '광주'}];
+
+
+            //2. 배열을 조건으로 정렬한다.
+            userAccount.sort(function(a, b){
+                // TODO : 배열을 소팅하는 코드.
+                if ((0 === a.id.indexOf('admin')) && (0 === a.id.indexOf('admin')))
+                {
+                    if (a.id > b.id)
+                    {
+                        return 1;
+                    }
+                    else if (a.id < b.id)
+                    {
+                        return -1;
+                    }
+                    else (a.id < b.id)
+                    {
+                        return 0;
+                    
+                    }
+
+                }
+                else if (0 === a.id.indexOf('admin'))
+                {                
+                    return -1
+
+                }
+                else if (0 === b.id.indexOf('admin'))
+                {                
+                    return 1;
+
+                }
+                else
+                {
+                    if (a.id > b.id)
+                    {
+                        return -1
+
+                    }
+                    else if (a.id < b.id)
+                    {
+                        return 1;
+
+                    }
+                    else if (a.id === b.id)
+                    {
+                        return 0;
+                    }
+
+                }
+            });
+
+            //3. 배열을 테이블로 만든다.(row추가.)
+            const tadmin = document.querySelector('#id_admin');
+            const tuser = document.querySelector('#id_user');
+
+
+            
+            //3.1 관리자 테이블에 데이터를 저장한다.
+            let tableHTML = '';
+            let tmp = '';
+
+            for (let i = 0; i < 3; i++)
+            {
+                //tr, 즉 row한줄을 만든다.
+                tmp = `<tr><td>${userAccount[i].id}</td><td>${userAccount[i].addr}</td></tr>`;
+                tableHTML += tmp;
+
+            }
+
+            
+            tadmin.innerHTML = '<tr> \
+                                    <th>관리자ID</th> \
+                                    <th>주소</th> \
+                                </tr>';
+                                
+            tadmin.innerHTML += tableHTML;
+
+
+
+            //3.2 사용자 테이블에 데이터를 저장한다.
+            tableHTML = '';
+            tmp = '';
+
+            for (let i = 3; i < userAccount.length; i++)
+            {
+                tmp = `<tr><td>${userAccount[i].id}</td><td>${userAccount[i].addr}</td></tr>`;
+                tableHTML += tmp;
+
+            }
+
+            tuser.innerHTML = '<tr> \
+                                    <th>사용자ID</th> \
+                                    <th>주소</th> \
+                                </tr>';
+                                
+            tuser.innerHTML += tableHTML;
+
+
+
+        });
+
+
+    </script>
+
+
+</head>
+<body>
+
+    <h1>관리자정보</h1>
+    <table id="id_admin" border="1px">        
+    </table>
+
+    <h1>사용자정보</h1>
+    <table id="id_user" border="1px">        
+    </table>
+
+    
+
+</body>
+</html>

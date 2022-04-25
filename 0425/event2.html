@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+
+       
+</head>
+<body>
+    <h1>click count 0</h1>
+
+    <script>
+        let count = 0;
+        const h1tag = document.querySelector('h1');
+
+        const OnClick = function(event){
+            count++;
+            h1tag.textContent = 'Click Count' + count;
+
+            if (count === 10)
+            h1tag.removeEventListener('click', OnClick);
+        }
+
+        h1tag.addEventListener('click', OnClick);
+
+    </script>
+</body>
+</html>

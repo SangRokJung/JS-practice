@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>  
+</head>
+<body>
+    <h1>Num of char</h1>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+
+    <script>
+        const tarea = document.querySelector('textarea');
+        const h1 = document.querySelector('h1');
+
+        tarea.addEventListener('keyup', (event) => {
+            h1.textContent = `Num of Char : ${event.currentTarget.value.length}`;
+        });
+
+        // tarea.addEventListener('keyup', (event) => {
+        //     h1.textContent = `Num of Char : ${tarea.value.length}`;
+        // });
+
+    </script>
+</body>
+</html>

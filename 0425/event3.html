@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>  
+</head>
+<body>
+    <h1></h1>
+    <textarea></textarea>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tarea = document.querySelector('textarea');
+            const h1 = document.querySelector('h1');
+
+        tarea.addEventListener('keyup', (event) => {
+            const len = tarea.value.length
+            h1.textContent = `글자수 : ${len}`;
+        });
+    });
+
+    </script>
+</body>
+</html>

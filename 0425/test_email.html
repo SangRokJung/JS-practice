@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="id_id"></h1>
+    <h1 id="id_domain"></h1>
+
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const emailV = prompt('please enter your email','xxx@xxx.com')
+            const h1 = document.querySelector('h1');
+
+            const _id = document.querySelector('#id_id');
+            const _domain = document.querySelector('#id_domain')
+
+            const ID = emailV.split('@')
+            let domain = 'www.' + ID[1]
+
+            _id.textContent = `ID = ${ID[0]}`  
+            _domain.textContent = `DOMAIN = ${domain}` 
+
+
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        
+           
+        const email = prompt('이메일을 넣어주세요', 'jsh.ezen.2022@gmail.com');
+
+        const token = email.split('@');
+     
+
+        const hid = document.querySelector('#id_id');
+        const hdomain = document.querySelector('#id_domain');
+
+        hid.textContent = 'ID : ' + token[0];
+        hdomain.textContent = 'DOMAIN : www.' + token[1];
+     
+    });
+
+
+    </script>
+
+</head>
+<body>
+    <h1 id="id_id"></h1>
+    <h1 id="id_domain"></h1>
+</body>
+</html>

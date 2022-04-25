@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            //배열 선언
+            const userAcount = [
+                {id : 'hgd' ,addr : '서울'},
+                {id : 'jsh' ,addr : '경기'},
+                {id : 'lss' ,addr : '부산'},
+                {id : 'admin3' ,addr : '대구'},
+                {id : 'ajk' ,addr : '인천'},
+                {id : 'dks' ,addr : '전남'},
+                {id : 'admin2' ,addr : '전북'},
+                {id : 'kmm' ,addr : '김제'},
+                {id : 'uiz' ,addr : '대전'},
+                {id : 'admin1' ,addr : '광주'}
+                ]
+
+            //배열 조건 선언
+            userAcount.sort(compare)
+
+            //배열 조건 함수
+            const compare = function(a, b) {
+            
+                if ((b.id.indexOf('admin') === 0) && (a.id.indexOf('admin') === 0)){
+                    let newA = a.id.split('admin')
+                    let newB = b.id.split('admin')
+                
+                    if (newA[1] > newB[1]){
+                        return 1;
+                    }
+                    else if (newA[1] < newB[1]){
+                        return - 1;
+                    }
+                    else {
+                        return 0;
+                    }
+                }
+                else if ((a.id.indexOf('admin') === 0)){
+                    return -1;
+                }
+                else if ((b.id.indexOf('admin') === 0)){
+                    return 1;
+                }
+            
+                else 
+                {
+                    if (a.id < b.id) {
+                        return 1;
+                    }
+                    else if (a.id > b.id) {
+                        return -1;
+                    }
+                    else {
+                        return 0;
+                    }
+                }
+            };
+
+        })
+
+        //배열을 테이블로 제작
+        const tadmin = document.querySelector('#id_admin');
+        const tuser = document.querySelector('#id_user');
+        
+        //관리자 테이블에 데이터 저장
+
+        tadmin.innerHTML = 0;
+
+        //사용자 테이블에 데이터 저장
+
+    </script>
+
+</head>
+<body>
+
+    <h1>관리자 정보</h1>
+    <table id="id_admin">
+    </table>
+    
+    <h1>사용자 정보</h1>
+    <table id="id_user">
+    </table>
+
+</body>
+</html>
