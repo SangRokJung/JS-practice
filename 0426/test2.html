@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+
+        const isEmailFormat = function (email) {
+
+                    if (email.includes('@') === true){
+                    
+                        const nextV = email.split('@')
+                        console.log(nextV[1].length)
+                    
+                        if (nextV[1].includes('.') === true && nextV[1].length > (nextV[1].indexOf('.')+1)){
+                            return true;
+                        }
+                        else{
+                            return false;
+                        }
+                    }
+                    else{
+                        return false;
+                    }
+                }
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const input = document.querySelector('input')
+            const p = document.querySelector('p'); 
+
+            input.addEventListener('keyup', (event) => {
+
+                if (true === isEmailFormat(event.currentTarget.value)){
+                    p.textContent = `type of the Email`;
+                }
+                else{
+                    p.textContent = `is not type of the Email`;
+                }
+
+            });
+            
+        });
+
+
+    </script>
+</head>
+<body>
+    <h1>Is this in email format?</h1>
+    <input type="text"> E-mail
+    <p></p>
+</body>
+</html>

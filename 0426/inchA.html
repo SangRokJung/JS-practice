@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        const btnCalc = document.querySelector('button');
+        const txtInch = document.querySelector('input');
+        const p = document.querySelector('p');
+
+        btnCalc.addEventListener('click', (event)=>{
+            // 1. input 객체의 값을 가지고 온다.
+            const inch = txtInch.value;
+
+            // 2. 센치로 변환한 문자열을 생성.
+            const res = '결과 : ' + inch * 2.54 + 'cm';
+
+            // 3. p에 출력한다.
+            p.textContent = res;
+
+        }); //End of btnCalc Event()
+        
+    });
+    </script>
+
+</head>
+<body>
+    <input type="text">inch<br>
+    <button>계산</button>
+    <p>결과 : </p>
+</body>
+</html>

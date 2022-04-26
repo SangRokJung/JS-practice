@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Is this in email format?</h1>
+    <input type="text"> E-mail
+    <p></p>
+
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const input = document.querySelector('input')
+            const p = document.querySelector('p'); 
+
+            input.addEventListener('keyup', () => {
+
+                const email = input.value
+
+                if (email.includes('@') === true){
+
+                    const nextV = email.split('@')
+
+                    if (nextV[1].includes('.') === true){
+                        p.textContent = `type of the Email`
+                        return;
+                    }
+                    else{
+                        p.textContent = `is not type of the Email`
+                        return;
+                    }
+                }
+                else{
+                p.textContent = `is not type of the Email`
+                return;
+                }
+            });
+            
+        });
+
+        function checkEmail(email) {
+            
+            if (email.includes('@') === true){
+
+                const nextV = email.split('@')
+
+                if (nextV[1].includes('.') === true){
+                    return true;
+                }
+                else{
+                    return false;
+                }
+            }
+            else{
+                return false;
+            }
+        }
+
+        //console.log(checkEmail('sesilao@naver.com'))
+    </script>
+
+</body>
+</html>

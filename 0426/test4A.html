@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+
+    const isEmailFormat = function(text)
+    {
+        const   atPos = text.indexOf('@');  // @ 의 위치
+        let     dotPos = -1;                // . 의 위치
+        const   len = text.length;          // TEXT 길이
+
+
+        if (atPos !== -1)
+        {
+            dotPos = text.indexOf('.', atPos);
+
+            if (dotPos !== -1)
+            {
+                if (dotPos + 2 <= len)
+                    return true;
+            }
+            
+        }
+
+        return false;
+
+    }
+
+    const isEmailFormat2 = function(email)
+    {
+        const domain = ['com','kr','org','net'];
+        const atPos = email.indexOf('@');
+
+        // 1. @가 있어야 함.
+        if (atPos === -1)
+            return false;
+
+        // 2. @ 뒤에 . 이 있어야함
+        if (-1 === email.indexOf('.', atPos))
+            return false;
+
+        // 3. 마지막이 domain의 요소로 끝나야함.
+        const tokenArray = email.split('.');
+        const lastword = tokenArray[tokenArray.length - 1];
+        let result = false;
+
+        for (let i = 0; i < domain.length; i++)
+        {
+            if (domain[i] === lastword)
+            {
+                result = true;
+
+            }            
+        }
+        
+        return result;
+
+    }
+    
+
+    document.addEventListener('DOMContentLoaded', ()=>{
+
+        const txtInput = document.querySelector('input');
+        const p = document.querySelector('p');
+
+        txtInput.addEventListener('keyup', (event)=>{
+            let result = '';
+
+            if (true === isEmailFormat2(event.currentTarget.value))
+                result = '이메일 형식 : YES';
+            else
+                result = '이메일 형식 : NO';
+    
+            p.textContent = result;
+        });
+
+        
+    });
+    </script>
+
+</head>
+<body>
+    <input type="text">    
+    <p>이메일 형식 : NO</p>
+</body>
+</html>

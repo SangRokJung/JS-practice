@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+
+    const isEmailFormat = function(text)
+    {
+        const   atPos = text.indexOf('@');  // @ 의 위치
+        let     dotPos = -1;                // . 의 위치
+        const   len = text.length;          // TEXT 길이
+
+
+        if (atPos !== -1)
+        {
+            dotPos = text.indexOf('.', atPos);
+
+            if (dotPos !== -1)
+            {
+                if (dotPos + 2 <= len)
+                    return true;
+            }
+            
+        }
+
+        return false;
+
+    }
+
+
+    document.addEventListener('DOMContentLoaded', ()=>{
+
+        const txtInput = document.querySelector('input');
+        const p = document.querySelector('p');
+
+        txtInput.addEventListener('keyup', (event)=>{
+            let result = '';
+
+            if (true === isEmailFormat(event.currentTarget.value))
+                result = '이메일 형식 : YES';
+            else
+                result = '이메일 형식 : NO';
+    
+            p.textContent = result;
+        });
+
+        
+    });
+    </script>
+
+</head>
+<body>
+    <input type="text">    
+    <p>이메일 형식 : NO</p>
+</body>
+</html>

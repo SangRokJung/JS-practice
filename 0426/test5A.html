@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>체크박스 초단위 체크</title>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+
+        const chkvalue = document.querySelector('input');
+        const temp = document.querySelector('#timevalue');
+
+        let timer = 0;
+        let seconds = 0;
+        
+        function OnClick(event)
+        {
+            // 1. 체크박스를 체크 했을때 
+
+            if(event.currentTarget.checked)
+            {
+                timer = setInterval(()=>{
+                    seconds += 1;
+                    temp.textContent = `${seconds} 초`;
+                }, 1000)
+            }
+            else
+            {
+                // 2. 체크박스의 체크를 풀었을때
+                clearInterval(timer);
+            }
+        }
+
+        chkvalue.addEventListener('change', OnClick);
+    })
+    </script>
+</head>
+<body>
+    <input type="checkbox">&nbsp;&nbsp;
+    <span id="timevalue">초</span>
+</body>
+</html>
