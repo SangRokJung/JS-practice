@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+    
+
+        document.addEventListener('DOMContentLoaded', () =>{
+            const str = ['hello', '안녕하세요', 'こんにちは'];
+            const titles = document.querySelectorAll('.cls_title');
+    
+            titles.forEach((element, index) => {
+                element.textContent = str[index];
+                element.style.backgroundColor = 'red';
+            })
+        })
+    
+    
+     </script>
+
+</head>
+    
+<body>
+
+
+    <h1 class="cls_title"></h1>
+    <h1 class="cls_title"></h1>
+    <h1 class="cls_title"></h1>
+</body>
+</html>

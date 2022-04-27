@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+    
+
+        document.addEventListener('DOMContentLoaded', () =>{
+            const catimg = ['http://pleacekitten.com/200/200', 'http://pleacekitten.com/300/300', 'http://pleacekitten.com/400/400'];
+            const imgs = document.querySelectorAll('.cls_img ');
+    
+            imgs.forEach((element, index) => {
+                element.setAttribute = ('stc', catimg[index]);
+                element.style.backgroundColor = 'red';
+            })
+        })
+    
+    
+     </script>
+
+</head>
+
+<body>
+    <img class="cls_img"> http://pleacekitten.com/200/200
+    <img class="cls_img"> http://pleacekitten.com/300/300
+    <img class="cls_img"> http://pleacekitten.com/400/400
+</body>
+</html>

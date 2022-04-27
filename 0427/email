@@ -1,0 +1,26 @@
+    $(function() {
+        $('#select').change(function() {
+            if ($('#select').val() == 'directly') {
+                $('#textEmail').attr("disabled", false);
+                $('#textEmail').val("");
+                $('#textEmail').focus();
+            } else {
+                $('#textEmail').val($('#select').val());
+            }
+        })
+    });
+
+
+
+        <input type="text" id="emailId" value="" placeholder="이메일 입력"> 
+ <span>@</span>
+ <input id="textEmail" placeholder="이메일을 선택하세요."> 
+ <select id="select">
+            <option value="" disabled selected>E-Mail 선택</option>
+            <option value="naver.com" id="naver.com">naver.com</option>
+            <option value="hanmail.net" id="hanmail.net">hanmail.net</option>
+            <option value="gmail.com" id="gmail.com">gmail.com</option>
+            <option value="nate.com" id="nate.com">nate.com</option>
+            <option value="directly" id="textEmail">직접 입력하기</option>
+        </select>
+

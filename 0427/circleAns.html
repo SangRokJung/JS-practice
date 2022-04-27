@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+<script>
+    class circle
+    {
+        // 생성자.(반지름, 원주율)
+        constructor(_radius = 1, _PI = 3.14)
+        {
+            // 반지름.
+            this.radius = _radius;
+            this.PI = _PI;
+            
+        }
+
+        // 원의 둘레를 구하는 메소드.
+        getCircum()
+        {
+            if (typeof(this.PI) === 'number')
+            {
+                return this.radius * 2 * this.PI;
+            }                
+            else if (typeof(this.PI) === 'string')
+            {
+                return (this.radius * 2) + this.PI;            
+            }
+        
+            return null;
+
+        }
+
+        // 원의 넓이를 구하는 메소드
+        getArea()
+        {
+            if (typeof(this.PI) === 'number')
+            {
+                return this.radius * this.radius * this.PI;
+            }                
+            else if (typeof(this.PI) === 'string')
+            {
+                return (this.radius * this.radius) + this.PI;            
+            }
+        
+            return null;
+        }
+
+        // 원주율을 얻는다.
+        getPI()
+        {
+            return this.PI;
+
+        }
+
+        setPI(_PI)
+        {
+            this.PI = _PI;
+
+        }
+
+    }
+
+    
+</script>
+
+
+
+
+</head>
+<body>
+    
+</body>
+</html>

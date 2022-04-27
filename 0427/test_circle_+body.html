@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<script>
+    class circle {
+        //private
+        #pi
+        #radiusC
+
+        //constructor
+        constructor(_radiusC = 1, _pi = 3.14){
+            if (_radiusC < 0){
+                throw 'Enter a natural number greater than zero.'
+            }   
+            else{
+                this.#radiusC = _radiusC;
+            }
+
+            if ((_pi >= 3.14 && _pi < 3.15 ) || _pi === '𝝿'){
+                this.#pi = _pi
+            }
+            else {
+                throw 'It is not 𝝿 value.'
+            }
+
+        }
+
+        //setter
+        set setPi(_pi){
+            return this._setPi(_pi)
+        }
+        setPi(_setPi){
+            this.#pi = _setPi
+        }
+        set setRadius (_radius){
+            this.#radiusC = _radius
+        }
+        setRadius (_radius){
+            this.#radiusC = _radius
+        }
+
+        //getter
+        get Pi (){
+            return this.getPi()
+        }
+        getPi (){
+            return this.#pi
+        }
+
+        //get function
+        getWidth () {
+            if(typeof(this.#radiusC) !== 'number' || this.#radiusC < 0){
+                return 'Enter a natural number greater than zero.'
+            }
+            else{
+                if (this.#pi === '𝝿') {
+
+                    if(isNaN(this.#radiusC * this.#radiusC)){
+                        return 'Enter a natural number greater than zero.'
+                    }
+                    else{
+                        return `${this.#radiusC * this.#radiusC}${this.#pi}`
+                    }
+                }
+                else {
+                    if(isNaN(this.#radiusC * this.#radiusC * this.#pi)){
+                        return 'Enter a natural number greater than zero.'
+                    }
+                    else{
+                        return this.#radiusC * this.#radiusC * this.#pi
+                    }
+                }
+            }       
+        }
+        getCircum() {
+            if(typeof(this.#radiusC) !== 'number' || this.#radiusC < 0){
+                return 'Enter a natural number greater than zero.'
+            }
+            else{
+                if (this.#pi === '𝝿'){
+                    if(isNaN(this.#radiusC * 2)){
+                        return 'Enter a natural number greater than zero.'
+                    }
+                    else{
+                        return `${this.#radiusC * 2}${this.#pi}`
+                    }
+                }
+                else{
+                    if (isNaN(this.#radiusC * 2 * this.#pi)){
+                        return 'Enter a natural number greater than zero.'
+                    }
+                    else{   
+                        return (this.#radiusC * 2 * this.#pi)
+                    }
+                }
+            }
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const btnClick = document.querySelector('button')
+        const inputRadius = document.querySelector('#radius')
+        const inputPi = document.querySelector('#id_pi_input')
+        const width = document.querySelector('#id_width')
+        const circum = document.querySelector('#id_circum')
+        const pi = document.querySelector('#id_pi')
+        const selector = document.querySelector('#id_sel_pi')
+
+        selector.addEventListener('change', () =>{
+            if (selector.value === 'Direct input'){
+                inputPi.value = `Enter the circumference.`
+            }
+            else{
+                inputPi.value = selector.value; 
+            }
+        })
+
+
+        btnClick.addEventListener('click', (event) => {
+
+            const c2 = new circle(Number(inputRadius.value), inputPi.value)
+
+            width.textContent = `width : ${c2.getWidth()}`
+            circum.textContent = `circum : ${c2.getCircum()}`
+            pi.textContent = `pi : ${c2.Pi}`
+
+        })
+    })
+
+</script>
+
+<body>
+    <h1>Calculate the circle</h1>
+    <input type="text" id="radius"> radius <br>
+    <input type="text" id="id_pi_input" value="User Input">
+
+    <select name="sel_pi" id="id_sel_pi">
+        <option value="" disabled selected>* select PI              </option>
+        <option value="Direct input"   id="opid_di" > Diriect input</option>
+        <option value="3.14"            id="opid_3.14">        3.14</option>
+        <option value="𝝿"               id="opid_pi">             𝝿</option>
+    </select> pi (𝝿) <br>
+
+    <button>Calculate</button>
+    <h3 id="id_width">The width of Circle  </h3>
+    <h3 id="id_circum">The circum of Circle</h3>
+    <h3 id="id_pi">   Pi                   </h3>
+</body>
+</html>

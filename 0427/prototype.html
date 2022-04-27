@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const eat = function() {
+            console.log('EAT.')
+        }
+
+
+        //동물 함수
+        const animal = function() {
+            this.mouse = 1;
+        }
+        animal.prototype.eat = eat;
+        
+
+        //고양이 함수
+        const cat = function() {
+
+        }
+        cat.prototype = new animal();
+
+        const _cat = new cat();
+        
+        console.log(_cat.eat)
+
+
+    </script>
+</body>
+</html>
