@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const h1 = document.createElement('h1')
+      h1.textContent = '할 일 목록'
+      document.body.appendChild(h1)
+
+      const input = document.createElement('input')
+      document.body.appendChild(input)
+
+      const addButton = document.createElement('button')
+      document.body.appendChild(addButton)
+      addButton.textContent = '추가하기'
+      
+      //
+      addButton.addEventListener('click', () => {
+          if (input.value !== ''){
+          const div = document.createElement('div')
+          document.body.appendChild(div)
+
+          const checkbox = document.createElement('input')
+          checkbox.type = 'checkbox'
+          //체크박스 기능
+          checkbox.addEventListener('change', () => {
+            if(checkbox.checked){
+              div.style.textDecoration = 'line-through'
+            } else {
+              div.style.textDecoration = ''
+            }
+            
+          }) //checbox end
+          div.appendChild(checkbox)
+
+          const span = document.createElement('span')
+          span.textContent = input.value
+          input.value = ''
+          div.appendChild(span)
+
+          const deleteButton = document.createElement('button')
+          deleteButton.textContent = '제거하기'
+          deleteButton.addEventListener('click', () =>{
+             div.parentNode.removeChild(div)
+          })
+          div.appendChild(deleteButton)
+        } else {
+          alert('내용을 입력해주세요')
+        }
+      })
+    })
+  </script>
+</head>
+<body>
+
+</body>
+</html>

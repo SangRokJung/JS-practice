@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const d1tag = document.querySelector('#d1');
+            const h1tag = document.createElement('h1');
+
+            h1tag.textContent = 'hello world';
+            d1tag.appendChild(h1tag);
+
+            setTimeout(() => { d1tag.removeChild(h1tag); }, 3000);
+        })
+
+    </script>
+</head>
+
+<body>
+    <div id="d1"></div>
+</body>
+</html>

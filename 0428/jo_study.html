@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const catimg = ['http://placekitten.com/200/200', 
+                            'http://placekitten.com/300/300', 
+                            'http://placekitten.com/400/400'];
+
+            const imgs = document.querySelectorAll('.cls_img')
+
+            imgs.forEach((imgs, index) => {
+                imgs.setAttribute('src', catimg[index])
+                console.log(imgs.getAttribute('src'))
+            })
+        })
+    </script>
+</head>
+<body>
+    <img class="cls_img"> 
+    <img class="cls_img"> 
+    <img class="cls_img">
+</body>
+</html>

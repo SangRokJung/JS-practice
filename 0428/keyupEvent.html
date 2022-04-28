@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const tArea = document.querySelector('textarea');
+        const h1 = document.querySelector('h1');
+
+        tArea.addEventListener('keyup', (event) => {
+            const len = tArea.value.length;
+            h1.textContent = `글자수 : ${len}`
+        })
+    })
+
+
+</script>    
+</head>
+<body>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <h1></h1>
+    
+</body>
+</html>

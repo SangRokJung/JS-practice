@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const divTag = document.createElement('div')
+        document.body.appendChild(divTag)
+
+        const btn = document.createElement('button')
+        const btnTxt = document.createTextNode('button')
+
+
+        btn.appendChild(btnTxt)
+        divTag.appendChild(btn)
+
+        btn.addEventListener('click', () =>{
+            const _div = document.createElement('div')
+
+            const in1 = document.createElement('input')
+            in1.type = 'date'
+            const in2 = document.createElement('input')
+            in2.type = 'color'
+            const in3 = document.createElement('input')
+            in3.type = 'reset'
+
+            const brTag = document.createElement('br')
+
+            _div.append(in1, brTag, in2, brTag, in3, brTag)
+            divTag.appendChild(_div)
+            
+            
+
+
+        })
+    })
+</script>
+</head>
+<body>
+    
+</body>
+</html>

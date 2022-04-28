@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const h1tag = document.querySelector('#id_h1')
+        const h2tag = document.querySelector('#id_h2')
+
+        
+    })
+
+    /////////////////////////////////////////////
+    const h1tag = document.getElementById('id_h1')
+    const h2tag = document.getElementById('id_h2')
+
+    h1tag.removeEventListener('click', onClick)
+
+    const onClick = function (){
+        console.log('click')
+    }
+
+    h1tag.addEventListener('click', onClick)
+    h2tag.addEventListener('click', onClick)
+
+    //DELETE
+    h1tag.removeEventListener('click', onClick)
+
+</script>
+</head>
+
+<body>
+    <h1 id="id_h1"></h1>
+    <h1 id="id_h2"></h1>
+</body>
+</html>

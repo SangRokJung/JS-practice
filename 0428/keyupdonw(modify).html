@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const tArea = document.querySelector('textarea')
+        const h1tag = document.querySelectorAll('#id_h1')
+        const h2tag = document.querySelectorAll('#id_h2')
+
+
+        tArea.addEventListener('keyup', (event) => {
+            let len = tArea.value
+            h1tag.textContent = `code : ${event.code}
+                                keyCode : ${event.keyCode}
+                                key : ${event.key}`
+        })
+        tArea.addEventListener('keydown', (event) => {
+            h2tag.textContent = `code : ${event.code}
+                                keyCode : ${event.keyCode}
+                                key : ${event.key}`
+        })
+    })
+</script>
+</head>
+<body>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <h1 id="id_h1">h1</h1>
+    <h1 id="id_h2">h1</h1>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<script>
+    document.addEventListener('DOMContentLoaded', () =>{
+        const inputTag = document.querySelector('#id_todo')
+        const addBtnTag =  document.querySelector('#id_add')
+        const divTag = document.querySelector('#id_todo_list')
+
+        addBtnTag.addEventListener('click', (event) => {
+            //클릭하면 체크박스, 할일명, 삭제 버튼 추가
+
+            //통합 div
+            const _div = document.createElement('div')
+
+            //할일 생성
+            const todo = document.createElement('span')
+            todo.textContent = inputTag.value
+
+
+            //체크 박스 생성
+            const chckBox = document.createElement('input')
+            chckBox.type = 'checkbox'
+            //+체크 박스 기능
+            chckBox.addEventListener('change', (event) => {
+                if (chckBox.checked){
+                    todo.style.textDecoration = "line-through"
+                }
+                else{
+                    todo.style.textDecoration = ''
+                }
+            })
+
+            //삭제 버튼 생성
+            const delBtn = document.createElement('button');
+            const delBtnTxt = document.createTextNode('Delete');
+            delBtn.appendChild(delBtnTxt);            
+            //+삭제 버튼 기능
+            delBtn.addEventListener('click', () => {
+                divTag.removeChild(_div)
+            })          
+            
+
+            //한줄 띄기
+            const brTag = document.createElement('br')    
+
+
+            //상속
+            _div.append(chckBox, todo, delBtn, brTag)
+            divTag.append(_div);
+            
+        })
+    })
+
+</script>
+<body>
+    <h1>TO-DO List</h1>
+    <br>
+    <label for="">To-Do <input type="text" id="id_todo"></label>
+    <button id="id_add">Add</button> <br>
+    <br>
+    <div id="id_todo_list">
+    </div>
+
+</body>
+</html>

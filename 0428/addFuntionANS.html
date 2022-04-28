@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const addAll = (first, ...valAr) => {
+            let total = 0;
+
+            if (true === Array.isArray(first)){
+                for (const val of valAr){
+                total = total + val
+            }
+            console.log(total)
+            }
+            else{
+                
+            }
+
+            
+
+            
+        }
+        
+
+        const a = addAll(1, 2, 3);
+        const b = addAll(1, 2, 3, 4, 5, 6, 7, 10);
+        const c = addAll([1, 2, 3, 4, 5, 6, 7, 10])
+    </script>
+</body>
+</html>

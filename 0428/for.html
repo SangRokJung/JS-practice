@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const add1 = () => {
+            const ar = [1, 2, 3, 4, 5]
+            let res = 0
+
+            for (const num of ar) {
+                res = res + num
+                //res += num
+            }
+            console.log(res)
+        }
+
+        const add2 = () => {
+            const ar = [1, 2, 3, 4, 5]
+            let res = 0
+
+            ar.forEach((num) => {
+                res = res + num
+                //res += num
+            })
+            console.log(res)
+        }
+
+        add1()
+        add2()
+
+    </script>
+</body>
+</html>

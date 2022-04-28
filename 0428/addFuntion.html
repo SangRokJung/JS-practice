@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const addAll = (_val, ...valAr) => {
+            let ar1 = []
+            ar1 = _val
+            ar2 = valAr;
+
+            let res1 = 0
+            let res2 = 0
+
+            if (typeof(ar1) === 'object'){
+                for(let i = 0; i < ar1.length; i++){
+                    res1 = res1 + ar1[i]
+                    
+                }
+                return res1 
+            }
+            else{
+                for(let i = 0; i < ar2.length; i++){
+                    res2 = res2 + ar2[i]
+                }
+                return res2 + _val
+            }      
+        }
+
+        const a = addAll(1, 2, 3);
+        const b = addAll(1, 2, 3, 4, 5, 6, 7, 10);
+        const c = addAll([1, 2, 3, 4, 5, 6, 7, 10])
+
+        console.log(a)
+        console.log(b)
+        console.log(c)
+    </script>
+</body>
+</html>
