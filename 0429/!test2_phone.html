@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //전화번호를 입력하면 - 를 넣어주는 함수를 작성하시오 만약 010을 제외한
+        //번호가 7자리일 경우 xxx-xxxx 형식으로 만들어야함.
+        class phone {
+            constructor (_pN) {
+                if (typeof(_pN) !== 'string' || _pN.lenght < 7 || _pN.lenght > 8){
+                    throw 'Enter a phone number of 7 to 8 digits.'
+                }
+                this.pN = _pN
+            }
+
+            getPhoneNumber() {
+                let res = ''
+                let a = ''
+                let b = ''
+                let c = ''
+                let mi = '-'
+
+                if(this.pN.length === 11){
+                    a = this.pN.substring(0, 3)
+                    b = this.pN.substring(3, 7)
+                    c = this.pN.substring(7, 11)
+                    res = a + mi + b + mi + c 
+
+                }
+                else if(this.pN.length === 10){
+                    a = this.pN.substring(0, 3)
+                    b = this.pN.substring(3, 6)
+                    c = this.pN.substring(6, 10)
+                    res = a + mi + b + mi + c 
+                }
+                
+                return res
+            }
+        }
+        const p1 = new phone('01012345678')
+        const p2 = new phone('0101234567')
+
+        
+        // console.log(p1.getPhoneNumber())
+        // console.log(p2.getPhoneNumber())
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const titleTag = document.createElement('h1')
+            titleTag.textContent = `Print out your cell phone number.`
+            document.body.appendChild(titleTag)
+
+            const inputTag = document.createElement('input')
+            inputTag.value = `Please enter without '-'.`
+            document.body.appendChild(inputTag);
+            
+            const clickBtn = document.createElement('button')
+            clickBtn.textContent = 'Click'
+            document.body.appendChild(clickBtn)
+
+            //br
+            const brTag = document.createElement('br')
+            document.body.appendChild(brTag)
+            document.body.appendChild(brTag)
+            document.body.appendChild(brTag)
+
+            const phoneTag = document.createElement('h2')
+            document.body.appendChild(phoneTag)
+
+            clickBtn.addEventListener('click', (event) => {
+                const p1 = new phone(inputTag.value)
+
+                phoneTag.textContent = `${p1.getPhoneNumber()}`
+            })
+
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const h1Tag = document.createElement('h1')
+            document.body.appendChild(h1Tag)
+
+            const clock = function () {
+                //전체 날짜
+                const today = new Date();
+                //년
+                let years = today.getFullYear()
+                //월,일
+                let months = today.getMonth() + 1
+                let dates = today.getDate()
+                //시,분,초
+                let hours = today.getHours()
+                let minutes = today.getMinutes()
+                let seconds = today.getSeconds()
+
+                h1Tag.textContent = `${years} ${months}/${dates} ${hours}:${minutes}:${seconds}`
+            }
+            
+            const out = function () {
+                clock()
+                setInterval(clock, 100)
+            }
+            out()
+        })
+        
+        //padStart 필요
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+//브라우저의 크기가 변할 때 브라우저 사이즈(px)를 화면에 표시하는 코드를 작성하시오.
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const inSizeTag = document.createElement('h1')
+        document.body.appendChild(inSizeTag)
+        const outSizeTag = document.createElement('h1')
+        document.body.appendChild(outSizeTag)
+
+        window.addEventListener('resize', (event) => {
+            inSizeTag.textContent = `inner width : ${window.innerWidth}`
+            outSizeTag.textContent = `outer width : ${window.outerHeight}`
+        })
+    })
+
+    
+    </script>
+</head>
+<body>
+    
+    
+</body>
+</html>

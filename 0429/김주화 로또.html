@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>로또 추첨기</title>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            function getLottoNumber() {
+
+                let ball = [];
+                let result = [];
+                let remain_idx = 44;
+
+                // 공 45개를 만든다
+                for (let i = 0; i < 45; i++) {
+
+                    ball[i] = (i + 1);
+
+                }
+
+                // 6번을 돌린다. 마지막 공은 보너스 번호
+                for (let k = 0; k < 6; k++) {
+
+                    idx = Math.floor(Math.random() * remain_idx)
+
+                    result.push(ball[idx]);
+
+                    // 당첨된 공을 제외시킨다
+                    ball.splice(idx, 1);
+
+                    // 남은 공의 개수를 줄인다
+                    remain_idx--;
+
+                };
+
+                // 6개의 번호를 오름차순 소팅
+                result.sort(function (a, b) {
+
+                    return a - b;
+
+                });
+
+                return result;
+
+            };
+
+            const btnAdd = document.querySelector('#id_add');
+            const numberList = document.querySelector('#id_number_list');
+
+            btnAdd.addEventListener('click', (event) => {
+
+                const item = document.createElement('div');
+
+                const numberText = document.createElement('span');
+                numberText.textContent = getLottoNumber();
+
+                const btnDel = document.createElement('button');
+                btnDel.textContent = '삭제';
+
+                numberList.appendChild(numberText);
+                numberList.appendChild(btnDel);
+                
+                numberList.appendChild(item);
+
+                btnDel.addEventListener('click', (event) => {
+                    numberList.removeChild(item);
+                });
+
+            });
+
+        });
+
+    </script>
+
+</head>
+
+<body>
+
+    <script>
+
+
+
+        // const final = getLottoNumber();
+
+        // console.log(`당첨 번호는 ${final}`);
+
+    </script>
+
+    <h1>로또 추첨기</h1>
+
+    <button id="id_add"> 추첨 </button>
+
+    <h1 id="id_result">
+        </h2>
+
+        <div id="id_number_list"></div>
+
+</body>
+
+</html>

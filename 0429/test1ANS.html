@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //문자열에서 숫자만 추출하여 새로운 문자열을 만드는 함수를 작성하시오.
+        class filter {
+            constructor (_str) {
+                if (typeof(_str) !== 'string'){
+                    throw 'Enter a STRING'
+                }
+                this.str = _str
+            }
+
+            getNumber() {
+                let res = []
+
+                for (let i = 0; i < this.str.length; i++){
+
+                    if (!isNaN(Number(this.str))){
+                        res.push(this.str[i])
+                    }
+                    else{
+                    }
+                }
+                return res.join('')
+            }
+        }
+
+        const n1 = new filter('454bj2b5j432k5jf')
+        
+        console.log(n1.getNumber())
+
+        //join
+        //push
+    </script>
+</body>
+</html>

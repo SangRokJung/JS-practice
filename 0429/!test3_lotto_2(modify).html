@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+    <script>
+        //로또번호 6개를 출력하는 함수를 작성하시오.(단 리턴값은 오름차순으로 정렬된 배열)
+        //ran, sort
+
+        class gazalotto {
+            constructor () {
+                this.set = []
+                this.n = []
+                this.num = []
+                this.newNum = []
+                
+                //7 random lotto numbers
+                for (let i = 0; i < 7; i++){
+                    this.n[i] = Math.floor((Math.random() * (45)) + 1) 
+                }
+
+
+                this.set = new Set(this.n)
+                this.num = [...this.set]
+
+                if (this.num.length !== 7){
+                    
+                    let lgth = 7 - (this.num.length);
+                    for (let i = 0; i < lgth; i++ ){
+                        this.num.push(Math.floor((Math.random() * (100 - 1)) + 1) )
+                    }
+                }
+
+                this.set = new Set(this.num)
+                this.num = [...this.set]
+
+            
+                //sortting 7 random lotto numbers
+                this.num.sort((a, b) => {
+                        if (a < b){
+                            return -1;
+                        }
+                        else if(b > a){
+                            return 1;
+                        }
+                        else{
+                            return 0;
+                        }
+                    })
+
+                    console.log(this.num)
+
+                //Six lotto numbers excluding bonuses.
+                for(let i = 0; i < this.num.length-1; i++){
+                    this.newNum[i] = this.num[i]
+                }
+
+                //get bonusnumbers.
+                this.bonusNumber = this.num[6]
+    
+            }
+
+            getLottoNum(cmd) {
+                //object lotto
+                const lotto = {}
+
+                if (cmd === true){
+                    lotto.numbner = this.newNum
+                    lotto.bonusNumber = this.bonusNumber
+                    return lotto.bonusNumber
+                }
+                else{
+                    return this.newNum
+                }
+            }
+        }
+        //const user1 = new gazalotto()
+        // console.log(user1.getLottoNum())
+        // console.log(user1.getLottoNum(true))
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const titleTag = document.createElement('h1')
+            titleTag.textContent = 'WHO GOT 10 BILLION'
+            document.body.appendChild(titleTag)
+
+            const buttonTag = document.createElement('button')
+            buttonTag.textContent = 'LOTTO GAZA'
+            document.body.appendChild(buttonTag);
+
+            const lottoTag = document.createElement('h2')
+            document.body.appendChild(lottoTag);
+            const bonusNumberTag = document.createElement('h2')
+            document.body.appendChild(bonusNumberTag)
+
+            buttonTag.addEventListener('click', (event) => {
+                const lNum = new gazalotto()
+
+                lottoTag.textContent = `LOTTO NUMBERS : ${lNum.getLottoNum()}`
+                bonusNumberTag.textContent = `BONUES NUMBERS : ${lNum.getLottoNum(true)}`
+            })
+
+            
+        })
+    </script>
+</head>
+<body>
+</body>
+</html>

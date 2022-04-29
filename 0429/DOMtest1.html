@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        //크롬이면 크롭입니다.
+        //아니면 크롬이 아닙니다.
+        console.log(window.navigator.userAgent.toLowerCase())
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const h1Tag = document.createElement('h1')
+            document.body.appendChild(h1Tag)
+
+            const agent = navigator.userAgent.toLowerCase()
+            console.log(agent.indexOf('chrome'))
+
+            if (agent.indexOf('edg') > -1){
+                h1Tag.textContent = `This is not a Chrome`
+            }
+            else if (agent.indexOf('chrome') === -1){
+                h1Tag.textContent = `This is not a Chrome`
+            }
+            else if (agent.indexOf('chrome') > -1){
+                h1Tag.textContent = `This is Chrome`
+            }
+            
+        })
+
+
+    </script>
+</head>
+<body>
+    
+    
+</body>
+</html>

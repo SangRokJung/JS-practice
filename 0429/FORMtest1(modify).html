@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+//라디오버튼을 3개 만드시오( “강아지“, “고양이”, “기타“)
+//라디오버튼을 선택했을때 “~~를 선택하였습니다”라고 h1 태그에 출력하는 코드를 작성하시오.
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const fildTag = document.createElement('fieldset')
+            document.body.appendChild(fildTag)
+            
+            const divTag1 = document.createElement('div')
+            fildTag.appendChild(divTag1)
+            const divTag2 = document.createElement('div')
+            fildTag.appendChild(divTag2)
+            const divTag3 = document.createElement('div')
+            fildTag.appendChild(divTag3)
+
+            const raBtn = document.createElement('input')
+            raBtn.type = 'radio'
+            raBtn.id = 'id_dog'
+            raBtn.value = '강아지'
+            const labelTag1 = document.createElement('label')
+            labelTag1.textContent = '강아지'
+            divTag1.append(raBtn, labelTag1)
+            labelTag1.form = 'id_dog'
+
+            const raBtn2 = document.createElement('input')
+            raBtn2.type = 'radio'
+            raBtn2.id = '고양이'
+            raBtn2.value = '고양이'
+            const labelTag2 = document.createElement('label')
+            labelTag2.textContent = '고양이'
+            divTag2.append(raBtn2, labelTag2)
+            
+            const raBtn3 = document.createElement('input')
+            raBtn3.type = 'radio'
+            raBtn3.id = '기타'
+            raBtn3.value = '기타'
+            const labelTag3 = document.createElement('label')
+            labelTag3.textContent = '기타'
+            divTag3.append(raBtn3, labelTag3)
+
+            const h1Tag = document.createElement('h1')
+            document.body.appendChild(h1Tag)
+
+            fildTag.addEventListener('checked', () => {
+
+                h1Tag.textContent = `${fildTag.value}`
+            })
+
+
+            
+
+
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+//마우스를 움직이면 “move”, 
+//마우스를 클릭하면 “click”이라고 화면에 표시하는 코드를 작성하시오. 
+//(단 move 및 click시 마우스의 위치좌표값을 함께 표시 할 것)
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const moveLocTag = document.createElement('h1')
+        document.body.appendChild(moveLocTag)
+        const clckLocTag = document.createElement('h1')
+        document.body.appendChild(clckLocTag)
+
+        document.addEventListener('mousemove', (event) => {
+            moveLocTag.textContent = ` X : ${event.clientX}, Y : ${event.clientY}`
+        })
+        document.addEventListener('click', (event) => {
+            clckLocTag.textContent = ` X : ${event.clientX}, Y : ${event.clientY}`
+        })
+        
+    })
+
+    
+    </script>
+</head>
+<body>
+    
+    
+</body>
+</html>
