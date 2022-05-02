@@ -1,0 +1,14 @@
+<label for ="cbox">체크박스</label>
+<input type="checkbox" id="cbox" name="cbox">
+<button id="btn">체크하기</button>
+
+<script>
+var cbox = document.getElementById("cbox");
+var btn = document.getElementById("btn");
+
+//이벤트 걸어준 후
+btn.addEventListener('click', function(){
+		//checked 제어
+	 	cbox.checked = true;
+});
+</script>

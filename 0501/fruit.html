@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+//추가 버튼을 누르면 테이블row가 추가되고 초기화버튼을 누르면 초기화 되는 코드를 작성하시오.
+//과일명은 사과, 배, 딸기, 바나나, 귤 중 랜덤 1
+//수량은 1~10 사이 랜덤값
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const tableTag = document.querySelector('table')
+
+        const addBtnTag = document.querySelector('#id_addBtn')
+        const delBtnTag = document.querySelector('#id_delBtn')
+
+
+        //추가 버튼 기능
+        addBtnTag.addEventListener('click', () => {
+            const trTag = document.createElement('tr')
+            const thNTag = document.createElement('th')
+            const thFrtTag = document.createElement('th')
+            const thNumFrtTag = document.createElement('th')
+
+            //상속
+            trTag.append(thNTag, thFrtTag, thNumFrtTag)
+            tableTag.appendChild(trTag)
+
+            thNTag.textContent = `${num()}`
+            thFrtTag.textContent = `${frtNme()}`
+            thNumFrtTag.textContent = `${ranNum()}`
+                
+                //초기화 버튼 기능
+                delBtnTag.addEventListener('click', () => {
+
+                tableTag.removeChild(trTag)
+                _num = 0;
+            })
+        })
+
+    })
+
+    //순차적 번호 리턴 함수
+    let _num = 0;
+    const num = function (){
+        _num = _num + 1;
+        return _num;
+    }
+
+    //과일명 랜덤 리턴 함수
+    const frtNme = function(){
+        const frt = ['사과', '배', '딸기', '바나나', '귤']
+        let index = Math.floor(Math.random() * 5)
+        return frt[index];
+    }
+
+    //수량 값 랜덤 리턴 함수
+    const ranNum = function(){
+        const rNum = Math.floor((Math.random() * 10) + 1)
+        return rNum;
+    }
+    
+    </script>
+</head>
+<body>
+    <table border="1px">
+        <tr>
+            <th>번호</th><th>과일명</th><th>수량</th>
+        </tr>
+    </table>
+    <button id="id_addBtn" style="width : 80px">추가</button> <button id="id_delBtn" style="width: 80px;">초기화</button>
+</body>
+</html>

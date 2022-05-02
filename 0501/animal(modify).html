@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+    //라디오버튼을 3개 만드시오( “강아지“, “고양이”, “기타“)
+    //라디오버튼을 선택했을때 “~~를 선택하였습니다.”라고 h1 태그에 출력하는 코드를 작성하시오.
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttonTag1 = document.querySelector('#id_radio1')
+            const buttonTag2 = document.querySelector('#id_radio2')
+            const buttonTag3 = document.querySelector('#id_radio3')
+            const buttonTag4 = document.querySelector('#id_radio4')
+            const animalTag = document.getElementById('id_animal')
+
+            const nameTag = document.getElementsByName('animal')
+            const nameTagLth = nameTag.length;
+
+            const whyBtnTag = document.querySelector('#id_enter')
+            const whyTag = document.querySelector('#id_why')
+
+            
+
+            buttonTag1.addEventListener('click', (event) => {
+
+                animalTag.textContent = `${buttonTag1.value}`
+            })
+            
+            buttonTag2.addEventListener('click', (event) => {
+
+                animalTag.textContent = `${buttonTag2.value}`
+            })       
+                 
+            buttonTag3.addEventListener('click', (event) => {
+
+                animalTag.textContent = `${buttonTag3.value}`
+            })
+
+            buttonTag4.addEventListener('click', (event) => {
+
+                animalTag.textContent = `${buttonTag4.value}`
+            })
+
+            whyBtnTag.addEventListener('click', (event) => {
+                animalTag.textContent = `${whyTag.value}`
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <fieldset id="id_fld_main">
+        <legend>What do you wish for? </legend>
+    
+        <div>
+          <input type="radio" id="id_radio1" name="animal" value="DOG" checked>
+          <label for="id_dog">DOG</label>
+        </div>
+    
+        <div>
+          <input type="radio" id="id_radio2" name="animal" value="CAT">
+          <label for="id_cat">CAT</label>
+        </div>
+
+        <div>
+            <input type="radio" id="id_radio3" name="animal" value="BIRD">
+            <label for="id_bird">BIRD</label>
+        </div>
+    
+        <div>
+          <input type="radio" id="id_radio4" name="animal" value="Please enter another animal.">
+          <label for="id_other">OTHER</label>
+        </div>
+
+        <fieldset>
+            <legend>Please enter another animal.</legend>
+        
+            <div id="id_div_why">
+              <input type="text" name="why" id="id_why">
+              <input type="button" name="why" id="id_enter" value="Enter">
+            </div>
+
+        </fieldset>
+    </fieldset>
+
+    <fieldset>
+        <legend>It's the animal you think of.</legend>
+
+        <div id="id_div_animal">
+            <h1 id="id_animal">v</h1>
+        </div>
+
+    </fieldset>
+</body>
+</html>

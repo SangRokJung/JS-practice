@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+<script>
+
+    //선택 동의를 해제 했을 시 전체동의가 해제 되게
+    document.addEventListener('DOMContentLoaded', () => {
+        const ckTag = document.getElementById('id_a')
+        const evtBtnTag1 = document.getElementById('id_b')
+        const evtBtnTag2 = document.getElementById('id_c')
+        const evtBtnTag3 = document.getElementById('id_d')
+        const evtBtnTag4 = document.getElementById('id_e')
+        
+        ckTag.addEventListener('click', (event) => {
+
+            const chckValue = event.currentTarget.checked;
+
+            evtBtnTag1.checked = chckValue
+            evtBtnTag2.checked = chckValue
+            evtBtnTag3.checked = chckValue
+            evtBtnTag4.checked = chckValue
+
+        })
+
+        evtBtnTag1.addEventListener('click', (event) => {
+            if(event.currentTarget.checked == false){
+                ckTag.checked = false;
+            }
+        })
+        evtBtnTag1.addEventListener('click', (event) => {
+            if(event.currentTarget.checked == false){
+                ckTag.checked = false;
+            }
+        })
+        evtBtnTag3.addEventListener('click', (event) => {
+            if(event.currentTarget.checked == false){
+                ckTag.checked = false;
+            }
+        })
+        evtBtnTag4.addEventListener('click', (event) => {
+            if(event.currentTarget.checked == false){
+                ckTag.checked = false;
+            }
+        })
+
+        
+    })
+</script>
+</head>
+<body>
+    <label for="id_a"> 전체동의 <input type="checkbox" name="all" id="id_a"> </label><br>
+        <label >개인정보 사용 동의<input type="checkbox" name="ckbox" id="id_b"></label><br>
+        <label >마케팅 수신 정보 동의<input type="checkbox" name="ckbox" id="id_c"></label><br>
+        <label >제3자 정보 전달 동의<input type="checkbox" name="ckbox" id="id_d"></label><br>
+        <label >기타 정보 수집 동의<input type="checkbox"name="ckbox" id="id_e"></label><br>
+
+</body>
+</html>

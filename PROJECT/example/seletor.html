@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* ID 선택자 */
+        #title {
+            color: bisque;
+        }
+
+        /* CLASS 선택자 */
+        .cls_title {
+            color: brown;
+        }
+
+        /* Attrubute 선택자 */
+        input[type=text] {
+            background-color: darksalmon;
+        }
+
+        /* arrtibute 문자열 선택자 */
+        img[src$=jpg]{
+            border: 1px solid black;
+        }
+
+        /* 후손 선택자 (현재 기준으로 그 아래 모든 선택자) */
+        /* container class 밑에 있는 item calss */
+        .container .item {
+            background-color: rgb(159, 255, 255);
+            height: 50px;
+            margin: 2px;
+        }
+
+        .container > .sub_container1 {
+            background-color: rgb(202, 255, 132);
+            height: 50px;
+            margin: 2px;
+        }
+
+        /* 구조 선택자 */
+        li:nth-child(2n) {
+            background-color: rgb(163, 252, 255);
+        }
+
+        li:nth-child(2n+1) {
+            background-color: rgb(250, 169, 236);
+        }
+
+        li:first-child, li:last-child {
+            color: blue;
+        }
+    </style>
+    <script>
+        const a = document.querySelector('#title')
+    </script>
+</head>
+<body>
+    <h1 id="title">Lorem ipsum dolor sit amet</h1>
+    <h1 class="cls_title">Lorem ipsum, dolor si</h1>
+    <h1 id="title">Lorem ipsum dolor sit </h1>
+
+    <!--명시적으로 속성값이 존재 하는 경우만 선택-->
+    <label for="">INPUT TEXT <input></label> <br><br>
+    <label for="">INPUT TEXT <input type="text"></label> <br><br><br>
+
+    <img src="./Ford-Bronco-2021_1.jpg" alt="">
+    <img src="./Ford-Bronco-2021_1.jpg" alt=""> <br><br><br>
+
+    <div class="container">
+        <div class="sub_container1">BYE BYE</div>
+            <div class="item" >ONE</div>
+            <div class="item" >TWO</div>
+            <div class="item" >THREE</div>
+
+
+        <div class="sub_container2">
+            <div class="item" >HELLO</div>
+            <div class="item" >DR</div>
+            <div class="item" >Strange</div>
+        </div>
+    </div> <br><br><br>
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+
+</body>
+</html>

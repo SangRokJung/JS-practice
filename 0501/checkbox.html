@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const ckTag = document.getElementById('id_a')
+        const evtBtnTag1 = document.querySelector('#id_b')
+        const evtBtnTag2 = document.querySelector('#id_c')
+        const evtBtnTag3 = document.querySelector('#id_d')
+        const evtBtnTag4 = document.querySelector('#id_e')
+        
+        ckTag.addEventListener('click', () => {
+
+            if(ckTag.checked){
+                evtBtnTag1.checked = true;
+                evtBtnTag2.checked = true;
+                evtBtnTag3.checked = true;
+                evtBtnTag4.checked = true;
+            }
+            else if (!ckTag.checked) {
+                evtBtnTag1.checked = false;
+                evtBtnTag2.checked = false;
+                evtBtnTag3.checked = false;
+                evtBtnTag4.checked = false;
+            }
+
+        })
+    })
+</script>
+</head>
+<body>
+    <label for="id_a"> 전체동의 <input type="checkbox" name="all" id="id_a"> </label><br>
+        <label for="id_b">개인정보 사용 동의<input type="checkbox" name="ckbox" id="id_b"></label><br>
+        <label for="id_c">마케팅 수신 정보 동의<input type="checkbox" name="ckbox" id="id_c"></label><br>
+        <label for="id_d">제3자 정보 전달 동의<input type="checkbox" name="ckbox" id="id_d"></label><br>
+        <label for="id_e">기타 정보 수집 동의<input type="checkbox"name="ckbox" id="id_e"></label><br>
+
+</body>
+</html>

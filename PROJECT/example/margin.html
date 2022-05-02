@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #ap {
+            margin: 20px;
+        }
+
+        /* 더큰 margin */
+        #gr {
+            margin: 40px;
+        }
+
+
+        #up {
+            margin-top: 20px;
+            margin-bottom: 30px;
+            border: 10px solid red;
+        }
+        #down {
+            background-color: rgb(0, 195, 255);
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!--마진은 두 엘리먼트 사이의 공유하는 공간이다.
+        두 엘리먼트의 큰 마진값으로 설정된다.
+        엘리먼트의 border와 같은 시각적 요소가 추가되는 경우 그 영향을 받는다.
+        -->
+    <h1 id="ap">Apple</h1>
+    <h1 id="gr">Grapes</h1>
+
+    <div id="up">up</div>
+    <div id="down">down</div>
+</body>
+</html>

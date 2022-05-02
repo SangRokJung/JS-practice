@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        /*px font-size, 절대값.*/
+        #section1 {
+            font-size: 30px;
+        }
+
+        /* em, 상대값, 부모 태그의 폰트 사이즈에 비례 */
+        #div {
+            font-size: 10px;
+        }
+        #section2 {
+            font-size: 2em;
+        }
+
+        /* rem, 상대값 (root em) 최상위 태그의 폰트크기에 대비 */
+        /* 주로 사용 */
+        #section3 {
+            font-size: 2rem;
+        }
+
+        /* vw, 상대값 좌표체계의 가로에 대비, 가로사이즈의 1/100을 기준 
+        가로 사이즈가 1000이라고 했을 때 2vw = 2 * (1/100) = 20px  */
+        #section4 {
+            font-size: 2vw;
+        }
+    </style>
+</head>
+<body>
+    <p id="section1">px...Lorem ipsum dolor sit</p>
+
+    <div id="div">
+        <p id="section2">em...Lorem ipsum dolor sit</p>
+    </div>
+    
+
+    <p id="section3">rem...Lorem ipsum dolor sit</p>
+    
+    <p id="section4">vw...Lorem ipsum dolor sit</p>
+</body>
+</html>
