@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+            const giveaway = function (arr) {
+
+                let get = '';
+                const probability = [5, 15, 30, 50]
+                const ranNum = Math.floor((Math.random() * 99) + 1)
+                            
+                for (let i = 0; i < arr.length; i++) {
+                    if(probability[i] >= ranNum ){
+                        get = arr[i]
+                    }
+                    else if (probability[probability.length - 1] < ranNum){
+                        get = arr[arr.length -1]
+                    }
+                }
+                return get
+            }
+            const list = ['1등 노트북', '2등 스마트워치', '3등 스타벅스 아메리카노 1잔',
+                            '다음 기회에']
+            console.log(giveaway(list))
+    </script>
+    
+</body>
+</html>

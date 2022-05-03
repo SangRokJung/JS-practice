@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            //input text
+            const nameTag = document.querySelector('#id_ip_name')
+            const emailTag = document.querySelector('#id_ip_email')
+            const adsTag = document.querySelector('#id_ip_adrs')
+
+            //input checkbox
+            const allAgreeTag = document.querySelector('#id_cbx_all')
+            const agr1Tag = document.querySelector('#id_cbx_1')
+            const agr2Tag = document.querySelector('#id_cbx_2')
+            const agr3Tag = document.querySelector('#id_cbx_3')
+
+            //button
+            const btnTag = document.querySelector('#id_btn_agr')
+
+            //h1
+            const outTextTag = document.querySelector('#id_output')
+
+            //이름, 이메일, 주소 입력 이벤트
+            
+
+
+
+            //체크박스 클릭 이벤트
+            // + 전체동의 활성화, 전체동의 안할시 전체동의 비활성화
+            allAgreeTag.addEventListener('click', (event) => {
+                const checkValue = event.currentTarget.checked
+
+                 agr1Tag.checked = checkValue
+                 agr2Tag.checked = checkValue
+                 agr3Tag.checked = checkValue
+
+            })
+            //전체동의 해제
+            agr1Tag.addEventListener('click', (event) => {
+                if (event.currentTarget.checked == false){
+                    allAgreeTag.checked = false;
+                }
+            })
+            agr2Tag.addEventListener('click', (event) => {
+                if (event.currentTarget.checked == false){
+                    allAgreeTag.checked = false;
+                }
+            })
+            agr3Tag.addEventListener('click', (event) => {
+                if (event.currentTarget.checked == false){
+                    allAgreeTag.checked = false;
+                }
+            })
+
+
+
+            //동의 버튼 클릭 이벤트
+            // + 동의 버튼은 한번만 처리
+            // + 이름, 이메일, 주소 빠질시 경고 메세지 출력 v
+            // + 동의를 안누를시 동의하지 않아 경품지급이 불가능하다는 메세지 출력v
+            btnTag.addEventListener('click', (event) => {
+                
+                event.onClick = null
+                // + 이메일 형식 검사 (@여부, @뒤에 . 여부, .뒤에 문자열 존재 여부)
+                const emailCk = checkEmail(emailTag.value)
+
+                //이름, 주소 입력 값
+                const nameValue = nameTag.value
+                const adsValue = adsTag.value
+
+                //경품
+                const _gift = giveaway()
+
+                if(emailCk === 'noEmail'){
+                    outTextTag.textContent = `이메일 형식이 올바르지 않습니다.`
+                }
+                else if (nameValue.length <= 0 || adsValue.length <= 0) {
+                    outTextTag.textContent = `이름 혹은 주소를 입력해주세요.`
+                }
+                else if (allAgreeTag.checked === false ||
+                        agr1Tag.checked === false ||
+                        agr2Tag.checked === false ||
+                        agr3Tag.checked === false) {
+                    outTextTag.textContent = `모든 약관 동의시 경품 추첨이 가능합니다.`
+                }
+                else{
+                    outTextTag.textContent = `${_gift}`
+                }
+                
+                
+
+
+            })
+
+
+
+            //이메일 형식 검사 함수
+            // + 이메일 형식 검사 (@여부, @뒤에 . 여부, .뒤에 문자열 존재 여부)
+            const checkEmail = function(email) {
+                if (email.includes('@') === true) {
+                    const nextA = email.split('@')
+
+                    if (nextA[nextA.length - 1].includes('.') === true){
+                        const nextB = nextA[nextA.length - 1].split('.')
+                        const domain = ['com', 'kr', 'net', 'org']
+
+                        for (let i = 0; i < domain.length; i++) {
+                            if (nextB[nextB.length - 1].endsWith(domain[i]) === true ) {
+                                return true;
+                            }
+                            else{
+                                return 'noEmail'
+                            }
+                        }
+
+                    }
+                    else {
+                        return 'noEmail'
+                    }
+                }
+                else {
+                    return 'noEmail'
+                }
+            }
+            
+            
+            //경품 출력 함수
+            const giveaway = function () {
+                const arr = ['1등 노트북', '2등 스마트워치', '3등 스타벅스 아메리카노 1잔',
+                            '다음 기회에']
+                let get = '';
+                const probability = [5, 15, 30, 50]
+                const ranNum = Math.floor((Math.random() * 99) + 1)
+                            
+                for (let i = 0; i < arr.length; i++) {
+                    if(probability[i] >= ranNum ){
+                        get = arr[i]
+                    }
+                    else if (probability[probability.length - 1] < ranNum){
+                        get = arr[3]
+                    }
+                }
+                return get
+            }
+
+            console.log(giveaway())
+    
+        })
+
+    </script>
+</head>
+<body>
+    <label for="id_ip_name">이름 : <input type="text" id="id_ip_name"></label> <br>
+    <label for="id_ip_email">이메일 : <input type="text" id="id_ip_email"></label> <br>
+    <label for="id_ip_adrs">주소 : <input type="text" id="id_ip_adrs"></label> <br>
+
+    <label for="id_cbx_all">모든 사항에 동의 <input type="checkbox" name="all_agree" id="id_cbx_all"></label> <br>
+    <label for="id_cbx_1">개인정보 활용 <input type="checkbox" name="agree" id="id_cbx_1"></label> <br>
+    <label for="id_cbx_2">제3자에게 정보 제공 <input type="checkbox" name="agree" id="id_cbx_2"></label> <br>
+    <label for="id_cbx_3">광고수신 <input type="checkbox" name="agree" id="id_cbx_3"></label> <br>
+
+    <input type="button" name="" id="id_btn_agr" value="동의">
+
+    <h1 id="id_output">당첨 경품 : </h1>
+
+
+</body>
+</html>
