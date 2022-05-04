@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const testTag = document.querySelector('#id_input')
+            const btnTag = document.querySelector('#id_btn')
+            const ckbTag = document.querySelector('#id_ckb')
+
+            btnTag.addEventListener('click', (event) => {
+                testTag.disabled = true;
+                ckbTag.disabled = true;
+            })
+        })
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>disabled</legend>
+        <label for="id_input">텍스트 입력 : </label><input type="text" placeholder="TEXT INPUT" id="id_input"> <br>
+        <label for="id_btn">버튼 클릭 : </label><input type="button" value="BUTTON" id="id_btn"> <br>
+        <label for="id_ckb">체크박스 클릭 : </label><input type="checkbox" name="ckb" id="id_ckb"><br>
+    </fieldset>
+</body>
+</html>

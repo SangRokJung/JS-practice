@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const titleTag = document.createElement('h1');
+        titleTag.textContent = 'GET DICE NUMBERS'
+        document.body.appendChild(titleTag)
+
+        const inputTag = document.createElement('input');
+        inputTag.value = 'Enter 1 to 5 Numbers'
+        document.body.appendChild(inputTag)
+
+        const buttonTag = document.createElement('button');
+        buttonTag.textContent = `ENTER`
+        document.body.appendChild(buttonTag)
+
+        const ranNumDivTag = document.createElement('div')
+        document.body.appendChild(ranNumDivTag)
+
+        const ranNumTag = document.createElement('h2')
+        ranNumDivTag.appendChild(ranNumTag)
+
+        buttonTag.addEventListener('click', () => {
+
+            const dice1 = getDiceNumber(Number(inputTag.value))
+
+            ranNumTag.textContent = `${dice1}`
+        })
+    })
+
+    const getDiceNumber = (_num) => {
+            if (_num > 5 || _num < 1){
+                return 'The number of dice has been exceeded.'
+            }
+            else{
+                //난수의 배열
+                let ranNum = [];
+
+                //알파벳 문자열
+                const alpha = ['A', 'B', 'C', 'D', 'E'];
+
+                //결과값 object
+                const dice = {}     
+
+                for (let i = 0; i < _num; i++){
+                    //1~6까지의 난수
+                    ranNum[i] = Math.floor((Math.random() * (6)) + 1) 
+
+                    //객체에 Key와 value를 입력
+                    dice[alpha[i]] = ranNum[i] 
+                    
+                }
+
+                //주사위의 갯수에 따른 결과값 출력
+                if (dice.B === undefined){
+                    return `A : ${dice.A}`
+                }
+                else if (dice.C === undefined){
+                    return `A : ${dice.A}, B : ${dice.B}`
+                }
+                else if (dice.D === undefined){
+                    return `A : ${dice.A}, B : ${dice.B}, C : ${dice.C}` 
+                }
+                else if (dice.E === undefined){
+                    return `A : ${dice.A}, B : ${dice.B}, C : ${dice.C}, D : ${dice.D}` 
+                }
+                else {
+                    return `A : ${dice.A}, B : ${dice.B}, C : ${dice.C}, D : ${dice.D}, E : ${dice.E}` 
+                }
+                
+                //object에 Key와 value를 넣는 법
+                //object.Key = value; 
+                //object['str'] = value
+            }
+        }    
+</script>
+</head>
+<body>
+</body>
+</html>

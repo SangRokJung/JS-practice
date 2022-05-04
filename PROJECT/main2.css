@@ -1,0 +1,36 @@
+@charset 'utf-8';
+
+html {
+    font-size: 16px;
+    color :#1d1d1f;
+
+}
+
+body {
+    /*가로 스크롤을 없애준다.*/
+    overflow-x: hidden;
+
+}
+
+.global-nav {
+    height: 44px;
+    border: 1px solid black;
+    
+  
+}
+
+.global-nav-links {
+    /* flex처리, 균일하게 배치 */
+    display: flex;
+    justify-content: space-between;
+
+    /* 너비 및 마진설정 */
+    max-width: 1000px;
+    margin: 0 auto;
+    height: 100%;
+
+    align-items: center;
+}
+
+
+

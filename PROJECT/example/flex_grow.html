@@ -6,16 +6,19 @@
     <style>
         .container{
             display: flex;
-            flex-direction: row;
             background-color: aquamarine;
             height: 700px;
         }
 
         .item {
+            flex-grow: 1.618;
             background-color: palegoldenrod;
             color: darkolivegreen;
             border: 2px solid red;
-            flex-basis: 100px;
+        }
+
+        .item:nth-child(1){
+            flex-grow: 2;
         }
     </style>
 </head>

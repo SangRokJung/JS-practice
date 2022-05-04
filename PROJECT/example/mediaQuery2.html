@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        @media(min-width:1000px){
+            header{
+            border: 2px solid gray;
+            padding: 3px;
+            text-align: center;                                                                                                                                                                                                                                                                                                                                                                                                                                                 ;
+            }
+
+            .container {
+                display: flex;
+                flex-direction: row;
+                background-color: bisque;
+            }
+
+            .item{
+                border: 2px solid gray;
+            }
+
+            .item:nth-child(1){
+                flex-basis: 16rem;
+            }
+            .item:nth-child(2){
+                flex-basis: auto;
+                text-align: start;
+            }
+            .item:nth-child(3){
+                flex-basis: 350px;
+                text-align: center;
+            }
+
+            footer{
+                border: 2px solid gray;
+                text-align: center;
+            }
+        }
+        @media(max-width:1000px){
+            header{
+            border: 2px solid gray;
+            padding: 3px;
+            text-align: center;                                                                                                                                                                                                                                                                                                                                                                                                                                                 ;
+            }
+            .container {
+                display: flex;
+                flex-direction: column;
+                background-color: khaki;
+            }
+            .item{
+                border: 2px solid gray;
+            }
+
+            .item:nth-child(1){
+                flex-basis: 6rem;
+            }
+            .item:nth-child(2){
+                flex-basis: auto;
+                text-align: start;
+            }
+            .item:nth-child(3){
+                flex-basis: auto;
+                text-align: center;
+            }
+
+            footer{
+                border: 2px solid gray;
+                text-align: center;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>정보처리 산업 기사 과정</h1>
+    </header>
+
+    <div class="container">
+        <nav class="item">
+            <ul>
+                <li><a href="#">Java</a></li>
+                <li><a href="#">HTML</a></li>
+                <li><a href="#">CSS</a></li>
+                <li><a href="#">JavaScript</a></li>
+            </ul>
+        </nav>
+
+        <section class="item">
+            <p>썬 마이크로시스템즈에서 1995년에 개발한 객체 지향 프로그래밍 언어. 창시자는 제임스 고슬링이다. 2010년에 오라클이 썬 마이크로시스템즈를 인수하면서 Java의 저작권을 소유하였다. 현재는 OpenJDK는 GPL2이나 오라클이 배포하는 Oracle JDK는 상업라이선스로 2019년 1월부터 유료화정책을 강화하고 있다. Java EE는 이클립스 재단의 소유이다. Java 언어는 J2SE 1.4부터는 Java Community Process (JCP)에서 개발을 주도하고 있다.</p>
+        </section>
+
+        <aside class="item">
+            <a href="https://ydp.ezenac.co.kr/">이젠 컴퓨터 아카데미 </a>
+        </aside>
+    </div>
+
+    <footer>
+        <h4>개인정보관리자 : 정상록</h4>
+    </footer>
+</body>
+</html>

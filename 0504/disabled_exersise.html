@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            ipNameTag1 = document.querySelector('#id_ip_name')
+            ipAdsTag1 = document.querySelector('#id_ip_ads')
+            ipPtcodeTag1 = document.querySelector('#id_ip_ptcode')
+
+            ckbTag = document.querySelector('#id_ckbox')
+
+            ipNameTag2 = document.querySelector('#id_ip_name2')
+            ipAdsTag2 = document.querySelector('#id_ip_ads2')
+            ipPtcodeTag2 = document.querySelector('#id_ip_ptcode2')
+
+            ckbTag.addEventListener('click', (event) => {
+
+                if(ckbTag.checked === true) {
+                    ipNameTag2.value = ipNameTag1.value
+                    ipAdsTag2.value = ipAdsTag1.value
+                    ipPtcodeTag2.value = ipPtcodeTag1.value
+
+                    ipNameTag2.disabled = true;
+                    ipAdsTag2.disabled = true;
+                    ipPtcodeTag2.disabled = true;
+                }
+                else {
+                    ipNameTag2.disabled = false;
+                    ipAdsTag2.disabled = false;
+                    ipPtcodeTag2.disabled = false;
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>배송지</legend>
+        <input type="text" placeholder="이름" id="id_ip_name"> <br>
+        <input type="text" placeholder="주소" id="id_ip_ads"> <br>
+        <input type="text" placeholder="우편번호" id="id_ip_ptcode">
+    </fieldset> <br>
+    <fieldset>
+        <legend>청구지</legend>
+        <label for="id_ckbox">배송지와 동일 : </label> <input type="checkbox" id="id_ckbox"> <br>
+        <input type="text" placeholder="이름" id="id_ip_name2"> <br>
+        <input type="text" placeholder="주소" id="id_ip_ads2"> <br>
+        <input type="text" placeholder="우편번호" id="id_ip_ptcode2">
+    </fieldset>
+</body>
+</html>

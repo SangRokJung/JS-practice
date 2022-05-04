@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        const buttonTag = document.querySelector('#id_btn');
+
+        const inputTag = document.querySelector('#id_ip')
+
+        const ranNumTag = document.querySelector('#id_out')
+
+        buttonTag.addEventListener('click', () => {
+
+            const dice1 = getDiceNumber(Number(inputTag.value))
+
+            ranNumTag.textContent = `${dice1}`
+        })
+    })
+
+    const getDiceNumber = (_num) => {
+            if (_num > 5 || _num < 1){
+                return 'The number of dice has been exceeded.'
+            }
+            else{
+                //난수의 배열
+                let ranNum = [];
+
+                //알파벳 문자열
+                const alpha = ['A', 'B', 'C', 'D', 'E'];
+
+                //결과값 object
+                const dice = {}     
+
+                for (let i = 0; i < _num; i++){
+                    //1~6까지의 난수
+                    ranNum[i] = Math.floor((Math.random() * (6)) + 1) 
+
+                    //객체에 Key와 value를 입력
+                    dice[alpha[i]] = ranNum[i] 
+                    
+                }
+
+                //주사위의 갯수에 따른 결과값 출력
+                if (dice.B === undefined){
+                    return `A : ${dice.A}`
+                }
+                else if (dice.C === undefined){
+                    return `A : ${dice.A}, B : ${dice.B}`
+                }
+                else if (dice.D === undefined){
+                    return `A : ${dice.A}, B : ${dice.B}, C : ${dice.C}` 
+                }
+                else if (dice.E === undefined){
+                    return `A : ${dice.A}, B : ${dice.B}, C : ${dice.C}, D : ${dice.D}` 
+                }
+                else {
+                    return `A : ${dice.A}, B : ${dice.B}, C : ${dice.C}, D : ${dice.D}, E : ${dice.E}` 
+                }
+                
+                //object에 Key와 value를 넣는 법
+                //object.Key = value; 
+                //object['str'] = value
+            }
+        }    
+</script>
+</head>
+<body>
+    <h1 id="id_title">Get Dice numbers</h1>
+
+    <input id="id_ip" type="text" placeholder="Enter 1 to 5 Numbers">
+    <input id="id_btn" type="button" value="ENTER">
+
+    <h2 id="id_out"></h2>
+
+</body>
+</html>
