@@ -1,9 +1,11 @@
 @charset 'utf-8';
 
 html {
+    font-family: 'Noto Sans', sans-serif;
+    /* 글자간격 줄임 */
+    letter-spacing: -0.07rem;
     font-size: 16px;
     color :#1d1d1f;
-
 }
 
 body {
@@ -12,25 +14,73 @@ body {
 
 }
 
+a {
+    text-decoration: none;
+    color: #1d1d1f;
+}
+
 .global-nav {
-    height: 44px;
-    border: 1px solid black;
-    
-  
+    height: 50px;
+    background-color: #1d1d1f;
+    border-top: #1d1d1f;
+    border-bottom: #1d1d1f;
 }
 
 .global-nav-links {
     /* flex처리, 균일하게 배치 */
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     /* 너비 및 마진설정 */
     max-width: 1000px;
     margin: 0 auto;
     height: 100%;
 
-    align-items: center;
 }
+
+.global-nav-item {
+    display: inline-block;
+    color: #f5f5f7;
+    font-size: 1.6rem;
+    font-weight: 800;
+    font-style: normal;
+    text-decoration: none;
+}
+
+.local-nav {
+    height: 44px;
+    background-color: rgba(255,255,255,0.72);
+    border-bottom: #1d1d1f;
+}
+
+.local-nav-links{
+    display: flex;
+    margin: 0 auto;
+    max-width: 1000px;
+    align-items: center; 
+
+    /* local-nav의 height 값 */
+    height: 100%; 
+}
+
+/* 제외 */
+.local-nav-item:not(.local-nav-item:nth-child(1)){
+    margin-left: 1em;
+}
+
+
+.local-nav-item:nth-child(1) {
+    /* 최대 사용 가능한 우측 마진 설정. */
+    margin-right: auto;
+
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+
+
+
 
 
 

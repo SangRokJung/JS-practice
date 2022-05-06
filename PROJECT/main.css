@@ -1,14 +1,23 @@
-@charset 'utf-8';
+@charset "UTF-8"; 
 
-html{
+html {
+    font-family: 'Noto Sans', sans-serif;
+    /* 글자간격 줄임 */
+    letter-spacing: -0.07rem;
     font-size: 16px;
-    color: #1d1d1f;
+    color :#1d1d1f;
 }
 
 
-body{
-    /* 가로 스크롤 숨김 */
+body {
+    /*가로 스크롤을 없애준다.*/
     overflow-x: hidden;
+
+}
+
+a {
+    text-decoration: none;
+    color: #1d1d1f;
 }
 
 .container{
@@ -17,42 +26,176 @@ body{
 }
 
 .global-nav{
-    height: 44px;
-    background-color: #1d1d1f;
+    height: 48px;
+    background-color: #333333;
+    border-top: #333333;
+    border-bottom: #333333;
 }
 
 .global-nav-links{
-    display: flex;
+    /* flex처리, 균일하게 배치 */
+    /* display: flex;
     justify-content: space-between;
+    align-items: center; */
 
-    height: 150%;
-    align-items: center;
-    margin: 0 0;
-    /* max-width: 1800px; */
+    /* 너비 및 마진설정 */
+    max-width: 1000px;
+    margin: 0 auto;
+    height: 100%;
+    line-height: 48px;
 }
 
-.local-nav{
-    
+.global-nav-links-m{
+    display: inline;
+    justify-content: center;
+    max-width: 300px;
+    margin: 0 auto;
 }
 
 .global-nav-item{
-    display: inline-block;
-    font-size: 12px;
-    font-style: normal;
     color: #f5f5f7;
-    padding: 0 72px;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    height: 44px;
-
+    font-size: 1.1rem;
+    font-style: normal;
 }
-.local-nav-item{
+
+#global-nav-item-home {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
     display: inline-block;
-    font-size: 12px;
-    color: #000000;
-    padding: 0 164px;
+    position: relative;
+    width: 37px;
+    height: 48px;
+    z-index: 1;
+    vertical-align: top;
+    background-size: 57px;
+    background-repeat: no-repeat;
+    background-image: url(./LOGO\ black.png);
+
+    background-position: center center;
+}
     
-    border: 2px solid ;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
+.global-nav-item-home-1{
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    -webkit-clip-path: inset(0px 0px 99.9% 99.9%);
+    clip-path: inset(0px 0px 99.9% 99.9%);
+    overflow: hidden;
+    height: 1px;
+    width: 1px;
+    padding: 0;
+    border: 0;
+    top: 50%;
+}
+
+.global-nav-item:not(.global-nav-item:nth-child(1)){
+    margin-left: 30px;
+}
+
+.global-nav-item:nth-child(6){
+    float: right;
 }
 
 
+.local-nav {
+    height: 44px;
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0,0,0,0.16);
+}
+
+.local-nav-links{
+    /* display: flex; */
+    margin: 0 auto;
+    max-width: 1000px;
+    align-items: center; 
+
+    /* local-nav의 height 값 */
+    height: 100%; 
+}
+
+
+/* 제외 */
+/* .local-nav-item:not(.local-nav-item:nth-child(1)){
+    margin-left: 1em;
+} */
+
+/* .local-nav-item:nth-child(1) {
+     최대 사용 가능한 우측 마진 설정. 
+     margin-left: auto; 
+} */
+
+/* #local-nav-item-serch{
+    height: 48px;
+} */
+
+#local-nav-input {
+    margin-left: 5px;
+    width: 139px;
+    height: 22px;
+    border: 1px solid #1d1d1f;
+}
+
+#local-nav-btn{
+    /* display: inline-block;
+    text-align: center; */
+    cursor: pointer;
+
+    margin-left: 5px;
+    
+    background-color: #0071e3;
+    color: #fff;
+    border-radius: 980px;
+    line-height: 1.4;
+    font-size: 12px;
+    font-weight: 400;
+
+    min-width: 23px;
+    padding-left: 11px;
+    padding-right: 11px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+#local-nav-btn:hover {
+    background: tomato; 
+    color: white;
+}
+
+.local-tag-set{
+    display: inline;
+    float: left;
+    line-height: 44px;
+    max-width: 700px;
+}
+
+.local-tag-add{
+    float: right;
+    line-height: 44px;
+}
+
+.new-tag-btn{
+    cursor: pointer;
+
+    margin-left: 5px;
+    
+    background-color: #67c75a;
+    color: #fff;
+    border-radius: 980px;
+    line-height: 1.4;
+    font-size: 12px;
+    font-weight: 400;
+
+    min-width: 23px;
+    padding-left: 11px;
+    padding-right: 11px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+
+    -webkit-transition-duration: 0.2s; /* Safari */
+    transition-duration: 0.2s;
+}
+.new-tag-btn:hover {
+    background: rgb(90, 90, 90); 
+    color: white;
+}

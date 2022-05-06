@@ -1,0 +1,78 @@
+@charset "utf-8";
+
+/*	
+################################# 
+파일명 : reset.css 
+설명 : 공통사항 
+작성자 : 김창기 (멋쟁이!) 
+작성일 : 2022.05.03 
+최종수정일 : 2022.06.03
+################################# 
+*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, button, select, canvas, details, embed, figure, input, textarea, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { 			
+	margin: 0;
+	outline: 0;
+	border: 0;
+	padding: 0;
+	background: transparent;
+} 
+
+* { margin: 0; padding: 0; }
+
+body {
+	*word-break: break-all; 
+	-ms-word-break: break-all;
+}
+html, body {
+	font-size: 16px; 
+	line-height: 1.6;
+	min-height: 100%; 
+	height: 100%;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { 		
+	display: block; 
+} 
+img, fieldset {
+	border:0 none; 
+	vertical-align: middle;
+}
+ul, ol, li, dl, dt, dd {
+	list-style: none;
+}
+table {
+	border-collapse: collapse; 
+	border-spacing: 0; 
+	width: 100%;
+}
+table caption{
+	visibility: hidden; 
+	overflow: hidden; 
+	width: 0; 
+	height: 0; 
+	font-size: 0; 
+	line-height: 0;
+}
+
+.clear { 
+	zoom: 1;
+	clear: both;
+}
+.clear:after { 
+	content: ""; 
+	display: block; 
+	clear: both;
+}
+.show{
+	display: block;
+}
+.hide{
+	display: none;
+}
+blockquote, q { 
+	quotes: none; 
+} 
+blockquote:before, blockquote:after, q:before, q:after { 
+	content: ''; 
+	content: none; 
+} 
