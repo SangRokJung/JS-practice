@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //두 배열을 연산자 (spread operator)를 이용하여 합치시오.
+
+        const arr1 = ['딸기', '수박'];
+        const arr2 = ['사과', '파인애플'];
+
+        arr1.unshift(...arr2)
+
+        console.log(arr1)
+        //['파인애플', '사과', '딸기', '수박']
+
+    </script>
+</body>
+</html>
