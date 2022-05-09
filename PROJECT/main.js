@@ -4,9 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const tagSetTag = document.querySelector('#id_tag_set')
 
-    tagAddIptTag.addEventListener('keypress',  (Event) => {
-
-        if(Event.keycode = 13) {
+    tagAddIptTag.addEventListener('keypress', (Event) => {
+ 
+        if(Event.keyCode === 13) {
             const newTagBtn = document.createElement('button');
             newTagBtn.className = 'new-tag-btn'
             tagSetTag.appendChild(newTagBtn)

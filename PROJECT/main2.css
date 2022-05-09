@@ -11,12 +11,15 @@ html {
 body {
     /*가로 스크롤을 없애준다.*/
     overflow-x: hidden;
-
 }
 
 a {
     text-decoration: none;
     color: #1d1d1f;
+}
+
+h1{
+  font-size: 5rem;  
 }
 
 .global-nav {
@@ -66,11 +69,15 @@ a {
 
 /* 제외 */
 .local-nav-item:not(.local-nav-item:nth-child(1)){
+    /* 클래스를 따로 만들어서 적용하는게 나음 */
+
     margin-left: 1em;
 }
 
 
-.local-nav-item:nth-child(1) {
+.local-nav-item:nth-child(1) {  
+    /* 클래스를 따로 만들어서 적용하는게 나음 */
+
     /* 최대 사용 가능한 우측 마진 설정. */
     margin-right: auto;
 
@@ -78,8 +85,45 @@ a {
     font-weight: bolder;
 }
 
+.middle-nav{
+    margin: 0 auto;
+    margin-top: 80px;
+    align-items: center;
+    max-width: 1000px;
+}
 
 
+.serise-message{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+
+    font-size: 2rem;
+    font-weight: bold;
+
+
+}
+
+#section-0-title{
+    text-align: center;
+    font-size: 100px; 
+}
+
+.section-1-ep{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+
+    font-size: 2rem;
+}
+
+.section-1-ep strong{
+    font-size: 4.5rem;
+    float: left;
+    margin-right: 1rem;
+}
 
 
 
