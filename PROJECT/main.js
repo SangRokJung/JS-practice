@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    //태그 ADD & DELETE 이벤트
     const tagAddBtnTag = document.querySelector('#local-nav-btn')
     const tagAddIptTag = document.querySelector('#local-nav-input')
 
@@ -35,6 +36,13 @@ document.addEventListener('DOMContentLoaded', () => {
             tagSetTag.removeChild(newTagBtn)
         })
     })
+    
+    const lcNavLinks1Tag = document.getElementsByClassName('.local-nav-links-1')
 
+    document.addEventListener('scroll', () => {
+        console.log(lcNavLinks1Tag.style)
+    })
+    //스크롤 이벤트
 
+    
 })

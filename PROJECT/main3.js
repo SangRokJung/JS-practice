@@ -22,11 +22,10 @@
             // section에서 사용하는 element들을 저장.
             ojbs : {
                 container : document.querySelector('#section-0'),
-                seriseMsgA : document.querySelector('#section-0 serise-message a'),
             },
             // section에서 사용하는 값들을 저장.
             values : {
-                MessageA_opacity : [0, 1],
+
             }
 
         },
@@ -101,7 +100,9 @@
             currentSection = 2;
         }
         
-        // console.log('currentSection = ' + currentSection);
+        console.log('currentSection = ' + currentSection);
+
+
     }
 
     // 최초에 HTML Page를 초기화하는 함수.
@@ -122,32 +123,9 @@
         setCurrentSection();
 
         // currentSection에 따른 CSS값을 설정.
-        document.body.setAttribute('id', `show-section-${currentSection}`)
+        //document.body.setAttribute('id', `show-section-${currentSection}`)
 
-        // 해당 currentSection에서 에니메이션을 실행한다.
-        playAnimation();
-    }
-
-    const playAnimation = function() {
-        switch(currentSection){
-            case 0 : 
-                //1. 스크롤 값을 기반으로 opacity 범위를 계산한다.
-                //1500:1
-                //0.00066
-                const elemTag = document.getElementsByClassName('sticky-elem serise-message')
-                console.log(elemTag)
-                const opVal = (window.scrollY) * 0.000661
-                //2. CSS에 적용한다.
-                for (let i = 0; i < elemTag.length; i ++) {
-                    elemTag[i].style.opacity = `${opVal}`
-                }
-                break;
-            case 1 : 
-
-                break;
-            case 2 : 
-                break;
-        }
+        
     }
 
 //-------------------------------------------------------------------------
@@ -156,7 +134,7 @@
 
     window.addEventListener('scroll', ()=>{                
         yOffset = window.scrollY;
-        scrollLoop();
+        scrollLoop();        
 
     });
     

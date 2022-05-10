@@ -2,129 +2,141 @@
 
 html {
     font-family: 'Noto Sans', sans-serif;
-    /* 글자간격 줄임 */
-    letter-spacing: -0.07rem;
     font-size: 16px;
     color :#1d1d1f;
+    letter-spacing: -0.05em;
+
 }
 
 body {
     /*가로 스크롤을 없애준다.*/
     overflow-x: hidden;
+
 }
 
-a {
+a {   
     text-decoration: none;
-    color: #1d1d1f;
+    color :#1d1d1f;
+
 }
 
-h1{
-  font-size: 5rem;  
+h1 {
+    font-size: 5rem;
+    text-align: center;
+    margin : 2.5em auto;
+
 }
 
-.global-nav {
-    height: 50px;
-    background-color: #1d1d1f;
-    border-top: #1d1d1f;
-    border-bottom: #1d1d1f;
+.global-nav {        
+    position: absolute;
+    height: 44px;
+    left : 0;
+    top : 0;
+    width: 100%;
+
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    
 }
 
 .global-nav-links {
     /* flex처리, 균일하게 배치 */
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center;    
 
     /* 너비 및 마진설정 */
+    max-width: 1000px;
+    margin: 0 auto;
+    height: 100%   
+
+}
+
+.local-nav {
+    position: absolute;
+    left : 0;
+    top : 45px;
+    width: 100%;
+    height: 44px;
+    border-bottom: 1px solid black;
+    
+}
+
+.local-nav-links {
+    display: flex;
+    align-items: center;    
     max-width: 1000px;
     margin: 0 auto;
     height: 100%;
 
 }
 
-.global-nav-item {
-    display: inline-block;
-    color: #f5f5f7;
-    font-size: 1.6rem;
-    font-weight: 800;
-    font-style: normal;
-    text-decoration: none;
+.local-nav-links .local-nav-item:nth-child(1)
+{
+    margin-right: auto;
+    font-weight: bold;
+    font-size : 1.5rem;
+
 }
 
-.local-nav {
-    height: 44px;
-    background-color: rgba(255,255,255,0.72);
-    border-bottom: #1d1d1f;
-}
-
-.local-nav-links{
-    display: flex;
-    margin: 0 auto;
-    max-width: 1000px;
-    align-items: center; 
-
-    /* local-nav의 height 값 */
-    height: 100%; 
-}
-
-/* 제외 */
-.local-nav-item:not(.local-nav-item:nth-child(1)){
-    /* 클래스를 따로 만들어서 적용하는게 나음 */
-
+.local-nav-links .local-nav-item:not(.local-nav-links .local-nav-item:nth-child(1)) {
     margin-left: 1em;
 }
 
 
-.local-nav-item:nth-child(1) {  
-    /* 클래스를 따로 만들어서 적용하는게 나음 */
-
-    /* 최대 사용 가능한 우측 마진 설정. */
-    margin-right: auto;
-
-    font-size: 1.5rem;
-    font-weight: bolder;
-}
-
-.middle-nav{
-    margin: 0 auto;
-    margin-top: 80px;
-    align-items: center;
-    max-width: 1000px;
-}
-
-
-.serise-message{
+.serise-message {
     display: flex;
     justify-content: center;
     text-align: center;
     align-items: center;
-
-    font-size: 2rem;
+    
+    font-size: 2.5rem;
     font-weight: bold;
-
+    height:4em;
 
 }
 
-#section-0-title{
-    text-align: center;
-    font-size: 100px; 
-}
-
-.section-1-ep{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-
+.episode {
+    width: 1000px;
+    margin: 0 auto;
     font-size: 2rem;
+
 }
 
-.section-1-ep strong{
-    font-size: 4.5rem;
+.episode strong {
+    font-size: 3rem;
     float: left;
-    margin-right: 1rem;
+    margin-right: 0.5em;
+
 }
 
+.scroll-section {
+
+    border: 1px solid black;
+}
+
+.sticky-elem {
+    display: none;
+    position: fixed;     
+    top : 350px;
+    
+    width: 100%;
+
+}
+
+#show-section-0 #section-0 .sticky-elem
+{
+    display: block;
+}
+
+#show-section-2 #section-2 .sticky-elem
+{
+    display: block;
+}
+
+.sticky-elem .serise-message{
+    opacity: 0;
+}
 
 
 

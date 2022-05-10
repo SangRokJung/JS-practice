@@ -1,0 +1,21 @@
+사용자가 원하는 Artist, music, M/V를 TAG data 기반으로 하여 쉽고 빠르게 찾아 들을 수 플랫폼을 구축하고자 한다.
+각각의 컨텐츠에 사용자가 TAG Data를 입력할 수 있게하여 data의 객관성을 높였다.
+
+    * 상단 메인 메뉴 : Home, Artist, Music, M/V, Concert, Communuty, Login
+        
+        Home : 사이트의 메인 페이지, 최신 주목받는 컨텐츠를 보여준다.
+        Artist : 태그 기반으로 Artist를 검색할 수 있다.
+        Music : 태그 기반으로 Music을 검색할 수 있다.
+        M/V : 태그 기반으로 M/V를 검색할 수 있다.
+        Concert : (필요성 고려)
+        Communuty : (필요성 고려)
+        Login : 로그인 페이지로 이동한다.
+
+        [태그]
+        감정 : 기쁨(즐거움), 슬픔, 욕망, 긴장감, 그리움, 희망, 공허함, 외로움, 설렘, 무의미함, 오묘함, 야릇함, 신비함
+        테마 : 계절, 크리스마스
+        상황 : 러닝, 클럽, 웨이트 트레이닝(파워 리프팅), 야간 드라이브, 주간 드라이브, 여행, 이별, 긍정적인 기분 전환, 티 타임, 독서, 위로
+        장르 : Rock, PopRock, Hiphop/Rap, Dance, RnB/Soul, CityPop, Synthwave , Jazz, Electro, Funk, Folk, House, Techno, Dsico, SynyhPop, KPOP, EDM
+        템포 : 1 ~ 200 (BPM)
+        청각 스트레스 지수 : 1 ~ 10
+    
