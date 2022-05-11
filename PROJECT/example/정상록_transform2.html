@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        .area{
+            max-width: 1000px;
+            height: 880px;
+
+            display: flex;
+
+
+            justify-content: center;
+            align-items: center;
+        }
+
+        .aaa {
+            display: flex;
+            width: 100px;
+            height: 100px;
+            background-color: brown;
+
+            justify-content: center;
+            align-items: center;
+
+            font-size: 35px;
+            font-weight: 500;
+
+            transform: translateY();
+            transform: translateX();
+        }
+        .btnClass{
+            max-width: 1000px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let tsYValue = 0;
+            let tsXValue = 0;
+
+            const btntsYupTag = document.querySelector('#btn-ts-Y-up')
+            const btntsYdownTag = document.querySelector('#btn-ts-Y-down')
+            const btntsXupTag = document.querySelector('#btn-ts-X-up')
+            const btntsXdownTag = document.querySelector('#btn-ts-X-down')
+            const btntsStopTag = document.querySelector('#btn-ts-stop')
+
+
+            const textTag = document.querySelector('.aaa')
+
+            let intUp;
+            let intDwn;
+
+            let bRunFlag = false;
+
+            let actFunc = null;
+
+            //함수
+            const tsUp = function (_stop) {
+                bRunFlag = true
+                tsYValue -= 1;
+                console.log(tsYValue);
+                let stop = _stop;
+                actFunc = 'up';
+
+                if (tsYValue <= -380 || stop === true) {
+                    // translateYvalue = -380;
+                    // textTag.style.transform = `translateY(${tsYValue}%)`;
+
+                    clearInterval(intUp)
+                    intUp = null
+                    bRunFlag = false;
+                    return
+                }
+                textTag.style.transform = `translateY(${tsYValue}%)`;
+
+            }
+
+
+            const tsDwn = function (_stop) {
+                bRunFlag = true
+                console.log(tsYValue)
+                tsYValue += 1;
+                let stop = _stop;
+                actFunc = 'down';
+
+                if(tsYValue >= 380 || stop === true){
+
+                    clearInterval(intDwn)
+                    intDwn = null
+                    bRunFlag = false;
+                    return
+                }
+                textTag.style.transform = `translateY(${tsYValue}px)`;
+
+            }
+
+
+            const tsRight = function(_stop) {
+                bRunFlag = true
+                tsXValue += 1;
+                console.log(tsXValue)
+                let stop = _stop;
+                actFunc = 'right';
+
+                if (tsXValue === 500 || stop === true){  
+
+                    clearInterval(intUp);
+                    intUp = null;
+                    bRunFlag = false;
+                    return
+                }
+                textTag.style.transform = `translateX(${tsXValue}px)`;
+            }
+
+            const tsLeft = function (_stop) {
+                bRunFlag = true
+                tsXValue -= 1;
+                console.log(tsXValue)
+                let stop = _stop;
+                actFunc = 'left';
+
+                if (tsXValue === -500 || stop === true){  
+                    // tsXValue = -500;
+                    // textTag.style.transform = `translateX(${tsXValue}px)`;
+                    clearInterval(intUp);
+                    intUp = null;
+                    bRunFlag = false;
+                    return
+                }
+                textTag.style.transform = `translateX(${tsXValue}px)`;
+            }
+
+            //이벤트 핸들러
+            btntsYupTag.addEventListener('click', (Event) => {
+                if (bRunFlag === true){
+                    console.log(tsYValue)
+                    console.log(bRunFlag)
+                    console.log('NO')
+                    return
+                }
+                else{
+                    intUp = setInterval(tsUp, 20)
+                }
+            })
+            btntsYdownTag.addEventListener('click', () => {
+                if (bRunFlag === true) {
+                    console.log(bRunFlag)
+                    console.log(tsYValue)
+                    console.log('NO')
+                    return
+                }
+                else{
+                    intDwn = setInterval(tsDwn, 20)
+                }
+            })
+
+            btntsXupTag.addEventListener('click', () => {
+                if (bRunFlag === true){
+                    console.log('NO')
+                    return
+                }
+                else{
+                    intUp = setInterval(tsRight, 20)
+                }
+            })
+
+            btntsXdownTag.addEventListener('click', () => {
+                if (bRunFlag === true){
+                    console.log('NO')
+                    return
+                }
+                else{
+                    intUp = setInterval(tsLeft, 20)
+                }
+            })
+
+            btntsStopTag.addEventListener('click', () => {
+                console.log(actFunc)
+                
+                if (actFunc = 'up') {
+                    tsUp(true);
+                }
+                else if (actFunc = 'down') {
+                    tsDwn(true);
+                }
+                else if (actFunc = 'right') {
+                    tsRight(true);
+                }
+                else if (actFunc = 'lest') {
+                    tsLeft(true);
+                }
+            })
+        })
+    </script>
+
+</head>
+<body>
+    <div class="btnClass">
+        <div>
+            <input type="button" value="translateY-Up" id="btn-ts-Y-up">
+            <input type="button" value="translateY-Down" id="btn-ts-Y-down">
+        </div>
+        <div>
+            <input type="button" value="translateX-Up" id="btn-ts-X-up">
+            <input type="button" value="translateX-Down" id="btn-ts-X-down">
+        </div>
+        <div>
+            <input type="button" value="translate-stop" id="btn-ts-stop">
+        </div>
+
+
+
+    </div>
+    <div class="area">
+        <div class="aaa">
+            <p>AAA</p>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+</html>

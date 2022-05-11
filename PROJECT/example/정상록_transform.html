@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        .area{
+            max-width: 1000px;
+            height: 1000px;
+
+            display: flex;
+
+
+            justify-content: center;
+            align-items: center;
+        }
+
+        .aaa {
+            display: flex;
+            width: 100px;
+            height: 100px;
+            background-color: brown;
+
+            justify-content: center;
+            align-items: center;
+
+            font-size: 35px;
+            font-weight: 500;
+
+            transform: translateY(0%);
+        }
+        .btnClass{
+            max-width: 1000px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let tsYValue = 0;
+
+            const btntsYupTag = document.querySelector('#btn-ts-Y-up')
+            const btntsYdownTag = document.querySelector('#btn-ts-Y-down')
+
+            const textTag = document.querySelector('.aaa')
+
+            let intUp;
+            let intDwn;
+            let intAll;
+            let bRunFade = false;
+
+            //함수
+            const tsUp = function () {
+                bRunFade = true
+                tsYValue -= 1;
+
+                if (tsYValue <= -90) {
+                    translateYvalue = -90;
+                    clearInterval(intUp)
+                    intUp = null
+                    bRunFade = false;
+                    return
+                }
+                textTag.style.transform = `translateY(${tsYValue}%)`;
+            }
+
+
+            const tsDwn = function () {
+                bRunFade = true
+
+                if(tsYValue < 0){
+                    tsYValue += 1;
+                }
+                else if (tsYValue === 0){
+                    
+                    tsYValue = 0;
+                    clearInterval(intDwn)
+                    intDwn = null
+                    bRunFade = false;
+                    return
+                }
+                textTag.style.transform = `translateY(${tsYValue}px)`;
+            }
+
+            //이벤트 핸들러
+            btntsYupTag.addEventListener('click', (Event) => {
+                if (bRunFade === true  ){
+                    console.log(tsYValue)
+                    console.log(bRunFade)
+                    console.log('NO')
+                    return
+                }
+                else{
+                    tsYValue = 0;
+                    
+                    intUp = setInterval(tsUp, 20)
+                }
+            })
+            btntsYdownTag.addEventListener('click', () => {
+                if (bRunFade === true) {
+                    console.log(bRunFade)
+                    console.log(tsYValue)
+                    console.log('NO')
+                    return
+                }
+                else{
+                    intDwn = setInterval(tsDwn, 20)
+                }
+            })
+
+            btntsStopTag.addEventListener('click', () => {
+
+            })
+        })
+    </script>
+
+</head>
+<body>
+    <div class="btnClass">
+        <input type="button" value="translateY-Up" id="btn-ts-Y-up">
+        <input type="button" value="translateY-Down" id="btn-ts-Y-down">
+    </div>
+    <div class="area">
+        <div class="aaa">
+            <p>AAA</p>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #section-0-title{
+            font-size: 50px;
+            font-weight: 500;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const ttTag = document.querySelector('#section-0-title')
+
+            //인터벌
+            let intv;
+            //opacity, translate Value
+            let opctValue = 0;
+            let tslYValue = 0;
+            //bRunFlag
+            let bRunFlag = null;
+
+            const animi = function() {
+                opctValue += 0.05;
+                tslYValue -= 1;
+
+                if(opctValue >= 1){
+                    clearInterval(intv)
+                    opctValue = 1
+                    ttTag.style.opacity = `${opctValue}`
+                    ttTag.style.transform = `translateY(${tslYValue}px)`
+                    return
+                }
+            
+                ttTag.style.opacity = `${opctValue}`
+                ttTag.style.transform = `translateY(${tslYValue}px)`
+            }
+
+            window.addEventListener('DOMContentLoaded', () => {
+                //인터벌 함수 호출
+                intv = setInterval(animi, 100)
+            })
+        })
+
+
+    </script>
+</head>
+<body>
+    <div id="section-0-title">
+        Lunch
+    </div>
+</body>
+</html>

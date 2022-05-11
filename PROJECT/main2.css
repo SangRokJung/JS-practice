@@ -94,6 +94,8 @@ h1 {
     font-weight: bold;
     height:4em;
 
+    opacity: 0;
+
 }
 
 .episode {
@@ -118,25 +120,18 @@ h1 {
 .sticky-elem {
     display: none;
     position: fixed;     
-    top : 350px;
-    
+    top : 350px;    
     width: 100%;
 
 }
 
-#show-section-0 #section-0 .sticky-elem
-{
-    display: block;
-}
-
+#show-section-0 #section-0 .sticky-elem,
 #show-section-2 #section-2 .sticky-elem
 {
     display: block;
 }
 
-.sticky-elem .serise-message{
-    opacity: 0;
-}
+
 
 
 
