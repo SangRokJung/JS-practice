@@ -21,12 +21,11 @@
             height : 0,
 
             // multiple : 스크롤 높이를 설정하기 위한 배수.
-            multiple : 1,
+            multiple : 2,
 
             // section에서 사용하는 element들을 저장.
             objs : {
-                container : document.querySelector('#section-0'),
-                seriseMsgA : document.querySelector('#section-0 serise-message a'),
+                container : document.querySelector('#id_local-nav-links-0'),
             },
             // section에서 사용하는 값들을 저장.
             values : {
@@ -42,10 +41,15 @@
             multiple : 3,
             objs : {
                 container : document.querySelector('#section-1'),
+                seriseMsgA : document.querySelector('.fadein-items1'),
+                seriseMsgB : document.querySelector('.fadein-items2'),
+                seriseMsgC : document.querySelector('.fadein-items3'),
 
             },
             values : {
-
+                MessageA_opacity : [0, 1, {start : 0.1, end : 0.4}],
+                MessageB_opacity : [0, 1, {start : 0.4, end : 0.7}],
+                MessageC_opacity : [0, 1, {start : 0.7, end : 1.0}],
             }
 
         },
@@ -60,8 +64,7 @@
 
             },
             values : {
-
-
+                MessageA_opacity : [0, 1],
             }
 
         }        
@@ -146,40 +149,90 @@
         playAnimation();
     }
 
+    const calcValue = function (values) {
+        //현재 sectionY offset에 따라 values의 범위 내에서 값을 계산 
+        let result = 0;
+        let range = 0;
+        let rate = 0;
+
+        if(values.length === 3){
+            rate = sectionYOffset / ((sectionSet[currentSection].height) * (values[2].end - values[2].start))
+            range = values[1] - values[0];
+            result = ((rate * range) + values[0]);
+            console.log('result = ' + result)
+            if (result >= 0.95) {
+                result = 0;
+                return result
+            }
+            return result
+            
+        } 
+        else{
+            //전체 높이 대비, sectionYOffset의 비율.
+            rate = sectionYOffset / sectionSet[currentSection].height
+            range = values[1] - values[0];
+            result = (rate * range) + values[0]
+            return result
+
+            // Opacity Values만 허용 하는 식
+            // if (values[1] > values[0]) {
+            //     range = values[1] - values[0]
+            //     result = (1 / range) * (sectionYOffset * (range / sectionSet[currentSection].height));
+
+            //     return result
+            // }
+            // else {
+            //     range = values[0] - values[1]
+            //     result = (1 - ((1 / range) * (sectionYOffset * (range / sectionSet[currentSection].height))));
+
+            //     return result
+            // }
+        }
+    }
     const playAnimation = function() {
         let opVal = 0;
+
+        const offsetRate = sectionYOffset / sectionSet[currentSection].height;
+        console.log('offsetRate = ' + offsetRate)
 
         switch(currentSection){
             case 0 : 
                 break;
 
             case 1 : 
-                // 현재 구하고 싶은 값은 스크롤을 대리면 opt가 증가한다.
-                // (1:전체 높이) * (현재 스크롤 값)
-
-                //1. 스크롤 값을 기반으로 opacity 범위를 계산한다.
-                const elemTag       = document.getElementsByClassName('fadein-items1')
-                        opVal       = (sectionYOffset) * (1/sectionSet[1].height);
+            if (offsetRate < 0.1) {
+            
+            }
+            else if (offsetRate >= 0.1 && offsetRate <= 0.4) {
+                opVal = calcValue(sectionSet[currentSection].values.MessageA_opacity)
+                sectionSet[currentSection].objs.seriseMsgA.style.opacity = `${opVal}`;
+            }
+            else if (offsetRate >= 0.4 && offsetRate <= 0.7) {
+                opVal = calcValue(sectionSet[currentSection].values.MessageB_opacity)
+                sectionSet[currentSection].objs.seriseMsgB.style.opacity = `${opVal}`;
+            }
+            else if (offsetRate >= 0.7 && offsetRate <= 1.0) {
+                opVal = calcValue(sectionSet[currentSection].values.MessageC_opacity)
+                sectionSet[currentSection].objs.seriseMsgC.style.opacity = `${opVal}`;
+            }
                 
-                //2. CSS에 적용한다.
-                for (let i = 0; i < elemTag.length; i ++) {
-                    elemTag[i].style.opacity = `${opVal}`
-                }
-                break;
+
+            //1. 스크롤 값을 기반으로 opacity 범위를 계산한다.
+            // opVal = calcValue(sectionSet[currentSection].values.MessageA_opacity)
+            
+            //2. CSS에 적용한다.
+            // sectionSet[currentSection].objs.seriseMsgA.style.opacity = `${opVal}`;
+            break;
 
             case 2 : 
-                const elemTag2 = document.getElementsByClassName('fadein-items2');
-                opVal = (sectionYOffset) * (1/sectionSet[2].height);
-                
-                for (let i = 0; i < elemTag2.length; i ++) {
-                    elemTag2[i].style.opacity = `${opVal}`
-                }
+                opVal = calcValue(sectionSet[currentSection].values.MessageA_opacity)
+                sectionSet[currentSection].objs.seriseMsgA.style.opacity = `${opVal}`;
             
                 break;
         }
     }
 
-    const ttTag = document.querySelector("#id_local-nav-links-00")
+    const ttTag = document.querySelector("#id_local-nav-links-0")
     //인터벌
     let intv;
     //opacity, translate Value
@@ -191,6 +244,7 @@
     const animi = function() {
         opctValue += 0.01;
         tslYValue -= 0.5;
+
         if(opctValue >= 1){
             opctValue =1;
             ttTag.style.opacity = `${opctValue}`

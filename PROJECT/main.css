@@ -28,41 +28,105 @@ a {
     max-width: 1000px;
 }
 
+/* section 0 START */
 #section-0{
-    max-width: 1000px;
 
-    display: flex;
+/* 
     flex-direction: column;
-
     justify-content: center;
     align-items: center;
-    /* text-align: center;
+
     align-content: center; */
-
-
 }
 
-.local-nav-links-00{
-    margin-top: 250px;
-
-    max-width: 1000px;
-
-    display: flex;
+.local-nav-links-0{
+    padding-top: 270px;
+    position: static;
     flex-direction: column;
-
     justify-content: center;
-
 }
 
-.local-nav-links-00 h1{
+.local-nav-links-0 h1{
     font-size: 80px;
     font-size: 80px;
     font-weight: 700;
     color : #1d1d1f;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-
+}
+/* section 0 END */
+/* section 1 START */
+.local-nav-links-1{
+    max-width: 1000px;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
 }
 
+#id_title p{
+    font-size: 80px;
+    font-weight: 700;
+    color : #1d1d1f;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    max-width: 1000px;
+
+    display: block;
+    position: fixed;     
+    top : 194px;
+    left :250px;
+}
+
+.fadein-items1,
+.fadein-items2,
+.fadein-items3{
+    opacity: 0;
+}
+
+#id_img{
+    position: fixed;     
+}
+
+#id_mainIMG{
+    position: fixed;     
+    top : 350px;
+    right :250px  
+}
+#id_mainIMG1{
+    position: fixed;     
+    top : 350px;
+    right :560px
+}
+#id_mainIMG2{
+    position: fixed;     
+    top : 350px;
+    right :871px
+}
+#id_mainIMG3{
+    position: fixed;     
+    top : 350px;
+    right :-60px
+}
+#id_mainIMG4{
+    position: fixed;     
+    top : 350px;
+    right : 1182px
+}
+#id_mainIMG5{
+    position: fixed;     
+    top : 350px;
+    right : 1495px
+}
+#id_mainIMG6{
+    position: fixed;     
+    top : 350px;
+    right : 1808px
+}
+
+
+.cs-imgs{
+    width: 300px;
+    height: 300px;
+}
+/* section 1 END */
 .local-nav-line{
     display: flex;
     margin: 0 auto;
@@ -75,17 +139,9 @@ a {
 }
 
 
-.local-nav-links-1{
-    display: block;
-    position: fixed;
-    /* align-items: center;
-    max-width: 1000px; */
-
-
-}
 
 .local-nav-links-2{
-    display: flex;
+    /* display: flex; */
     position: fixed;
     align-items: center;
     max-width: 1000px;
@@ -93,24 +149,7 @@ a {
 
 }
 
-#id_title{
-    margin-top:188px;
-    font-size: 80px;
-    font-weight: 700;
-    color : #1d1d1f;
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    max-width: 500px;
-}
 
-
-#id_img{
-    margin-top: 188px;
-}
-
-#id_mainIMG{
-    width: 500px;
-    height: 500px;
-}
 
 #id_ytb{
     margin-top: 288px;

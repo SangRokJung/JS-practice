@@ -27,10 +27,17 @@
             objs : {
                 container : document.querySelector('#section-0'),
                 seriseMsgA : document.querySelector('.serise-message.a'),
+                seriseMsgB : document.querySelector('.serise-message.b'),
+                seriseMsgC : document.querySelector('.serise-message.c'),
             },
             // section에서 사용하는 값들을 저장.
             values : {
-                MessageA_opacity : [1, 0],
+                MessageA_opacity : [0, 1, {start : 0.1, end : 0.2}],
+                MessageB_opacity : [0, 1, {start : 0.2, end : 0.3}],
+                MessageC_opacity : [0, 1, {start : 0.3, end : 0.4}],
+                // 메세지 A의 불투명도를 0에서 1까지
+                // 0.1(10%)지점 부터 0.2 지점까지 애니메이션 한다.
+                
             }
 
         },
@@ -42,6 +49,7 @@
             multiple : 4,
             objs : {
                 container : document.querySelector('#section-1'),
+                
 
             },
             values : {
@@ -145,46 +153,81 @@
         playAnimation();
     }
 
-    const calcValue = function (values, cmd) {
+    const calcValue = function (values) {
         //현재 sectionY offset에 따라 values의 범위 내에서 값을 계산 
         let result = 0;
-        let num = 0;
+        let range = 0;
+        let rate = 0;
 
-        //100분율의 기준 값
-        if (cmd === 'up'){
-            if(values[1] > values[0]){
-                num = values[1] - values[0]
-                result = sectionYOffset * (num / sectionSet[currentSection].height);
-                console.log(result)
+        if(values.length === 3){
+            rate = sectionYOffset / ((sectionSet[currentSection].height) * (values[2].end - values[2].start))
+            range = values[1] - values[0];
+            result = ((rate * range) + values[0]) - (values[2].start * 10) ;
+            console.log('result = ' + result)
+            if (result >= 0.95) {
+                result = 0;
                 return result
             }
-            else if(values[1] < values[0]) {
-                num = values[0] - values[1]
-                result = sectionYOffset * (num / sectionSet[currentSection].height);
-                console.log(result)
-                return result
-            }
-        }
-        else {
+            return result
             
+        } 
+        else{
+            //전체 높이 대비, sectionYOffset의 비율.
+            rate = sectionYOffset / sectionSet[currentSection].height
+            range = values[1] - values[0];
+            result = (rate * range) + values[0]
+            return result
+
+            // Opacity Values만 허용 하는 식
+            // if (values[1] > values[0]) {
+            //     range = values[1] - values[0]
+            //     result = (1 / range) * (sectionYOffset * (range / sectionSet[currentSection].height));
+
+            //     return result
+            // }
+            // else {
+            //     range = values[0] - values[1]
+            //     result = (1 - ((1 / range) * (sectionYOffset * (range / sectionSet[currentSection].height))));
+
+            //     return result
+            // }
         }
     }
 
     const playAnimation = function() {
         let opVal = 0;
 
+        const offsetRate = sectionYOffset / sectionSet[currentSection].height;
+        console.log('offsetRate = ' + offsetRate)
+
         switch(currentSection){
             case 0 : 
-                // 현재 구하고 싶은 값은 스크롤을 대리면 opt가 증가한다.
-                // (1:전체 높이) * (현재 스크롤 값)
+                if (offsetRate < 0.1) {
+                    opVal =0;
+                    sectionSet[currentSection].objs.seriseMsgA.style.opacity = `${opVal}`;
+                    sectionSet[currentSection].objs.seriseMsgB.style.opacity = `${opVal}`;
+                    sectionSet[currentSection].objs.seriseMsgC.style.opacity = `${opVal}`;
+
+                }
+                else if (offsetRate >= 0.1 && offsetRate <= 0.2) {
+                    opVal = calcValue(sectionSet[currentSection].values.MessageA_opacity)
+                    sectionSet[currentSection].objs.seriseMsgA.style.opacity = `${opVal}`;
+                }
+                else if (offsetRate >= 0.2 && offsetRate <= 0.3) {
+                    opVal = calcValue(sectionSet[currentSection].values.MessageB_opacity)
+                    sectionSet[currentSection].objs.seriseMsgB.style.opacity = `${opVal}`;
+                }
+                else if (offsetRate >= 0.3 && offsetRate <= 0.4) {
+                    opVal = calcValue(sectionSet[currentSection].values.MessageC_opacity)
+                    sectionSet[currentSection].objs.seriseMsgC.style.opacity = `${opVal}`;
+                }
+                    
 
                 //1. 스크롤 값을 기반으로 opacity 범위를 계산한다.
-                // opVal = sectionYOffset / sectionSet[currentSection].height;
-
-                opVal = calcValue(sectionSet[currentSection].values.MessageA_opacity, down)
+                // opVal = calcValue(sectionSet[currentSection].values.MessageA_opacity)
                 
                 //2. CSS에 적용한다.
-                sectionSet[currentSection].objs.seriseMsgA.style.opacity = `${opVal}`;
+                // sectionSet[currentSection].objs.seriseMsgA.style.opacity = `${opVal}`;
                 break;
 
             case 1 : 
